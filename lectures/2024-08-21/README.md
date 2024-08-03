@@ -18,7 +18,7 @@
 * Funktionstemplates i C++ (återigen med vektorer).
 * Inlämningsuppgift innefattande program med vektorer i C++.
 
-# För samtliga kodexempel
+## För samtliga kodexempel
 
 Vänligen använd följande online-kompilator:  
 https://www.onlinegdb.com/online_c_compiler.  
@@ -49,7 +49,7 @@ Några saker att notera:
 * *std::cout* är en operator för utskrift i terminalen *(cout = character out)*, som måste följas av << innan vi lägger till vad vi vill skriva ut.
 * \n är ett nyradstecken och medför att potentiell nästa utskrift genomförs på nästa rad.
 
-# Vektorer i C++
+## Vektorer i C++
 
 Vektorer är standardtypen av dynamiska arrayer (tänk listor) i C++.  
 För att använda vektorer behöver vi inkludera standardheadern *vector:*
@@ -129,13 +129,18 @@ Notera att:
 * Vi lägger till ett blanksteg mellan varje tal genom att skriva ut " " efter varje tal.
 
 ### Vanliga metoder tillhörande typ *std::vector*
-*std::vector* är en så kallad klass i C++, vilket är en datatyp som innehåller attribut, såsom element (tal) samt vektorns storlek, tillsammans med så kallade *metoder*. Metoder, vanligtvis kallade medlemsfunktioner i C++, är inget annat än funktioner tillhörande en klass. Några av de vanligaste metoderna presenteras kortfattat nedan:
-* *push_back:* Lägger till ett element längst bak i vektorn.
-* *pop_back:* Tar bort det sista elementet i vektorn (om ett sådant finns).
-* *size*: Indikerar vektorns storlek i antalet element den rymmer.
-* *clear:* Tömmer vektorn, dvs. tar bort samtliga element.
-* *empty:* Indikerar om vektorn är tom (returnerar då *true,* annars *false)*.
-* *resize:* Ändrar vektorns storlek till önskat antal. Det går att ange startvärde för potentiella nya element om man vill.
+*std::vector* är en så kallad klass i C++, vilket är en datatyp som innehåller attribut, såsom element (tal) samt vektorns storlek, tillsammans med så kallade *metoder*. Metoder, vanligtvis kallade medlemsfunktioner i C++, är inget annat än funktioner tillhörande en klass. 
+
+Några av de vanligaste metoderna presenteras kortfattat nedan:
+* ***push_back:*** Lägger till ett element längst bak i vektorn.
+* ***pop_back:*** Tar bort det sista elementet i vektorn (om ett sådant finns).
+* ***size:*** Indikerar vektorns storlek i antalet element den rymmer.
+* ***clear:*** Tömmer vektorn, dvs. tar bort samtliga element.
+* ***empty:*** Indikerar om vektorn är tom (returnerar då *true,* annars *false)*.
+* ***resize:*** Ändrar vektorns storlek till önskat antal. Det går att ange startvärde för potentiella nya element om man vill.
+* ***begin:*** Returnerar en iterator (tänk en pekare) till början av vektorn, vilket blir det första elementet i vektorn om ett sådant finns.
+* ***end:*** Returnerar en iterator (tänk en pekare) till slutet av elementet i vektorn, alltså till adressen efter det sista elementet om ett sådant finns. Om vektorn är tom kommer denna iterator referera till samma adress som returnerar för metoden *begin*.
+* ***erase:*** Raderar elementet på adressen angiven via en iterator. Det är också möjligt att radera flera konsekutiva element med denna metod.
 
 Det finns många fler metoder tillhörande *std::vector*. Vid intresse, 
 se C++ referensmanual:  
@@ -366,6 +371,47 @@ int main()
 }
 ```
 
+#### Erhåll vektorns början och slut via metoder *begin* och *end*
+Metoderna *begin* och *end* kan användas för att enkelt ta reda på början och slutet på en given vektor. Detta kan exempelvis användas för att iterera genom vektorn (via en for-sats) eller för att ta bort specifika element (se metoden *erase* nedan).
+
+Som exempel, nedanstående for-sats kan användas för att iterera genom en vektor döpt *number*. Varje element skrivs ut följt av ett blanksteg. 
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int main()
+{
+    std::vector<int> numbers{1, 2, 3};
+    
+    for (auto i{numbers.begin()}; i < numbers.end(); ++i)
+    {
+        std::cout << *i << " ";
+    }
+
+    return 0;
+}
+```
+
+Notera att:
+* En dereferensoperator måste användas för att få tillgång till innehållet på adressen som iteratorn pekar på, på samma sätt som när pekare används i C. *i kan därmed avläsas som *innehållet på adressen som *i pekar på.*
+* Vi kan med fördel använda nyckelordet *auto* för iteratorer. Om vi hade velat skriva ut typen hade det blivit mycket längre, då denna är *std::vector<int>::iterator* i detta fall. För mer komplicerade typer kan det bli väldigt mycket mer att skriva och svårare att läsa.
+
+#### Ta bort specifika element via metoden *erase*
+Metoden *erase* fungerar utmärkt för att ta bort element på ett specifikt index. Detta index måste dock specificeras via en iterator. Som exempel, för att ta bort det tredje elementet, alltså elementet på index 2, i en vektor döpt *numbers*, kan vi därmed skriva
+
+```cpp
+numbers.erase(numbers.begin() + 2);
+```
+
+Notera att vi specifikt skriver att vi ska radera elementet på startadressen (adressen för elementet på index 0) + 2 för att specificera index 2.
+
+Med denna metod kan vi också ta bort multipla efterföljande element. Som exempel, för att ta bort elementet på index 2 - 5 i en vektor döpt *numbers* kan vi skriva
+
+```cpp
+numbers.erase(numbers.begin() + 2, numbers.begin() + 5);
+```
+
 ### Funktioner med vektorer som ingående argument
 
 #### Skapande av egna namnrymder
@@ -397,6 +443,10 @@ struct int_vector
     size_t size; /* The size of the field in number of held elements. */
 };
 ```
+
+**Tips:** 
+*Vid intresse av hur vektorer kan implementeras i C++, se filer ***vector.h*** samt ***vector_impl.h*** tillhörande
+ATMega328P-biblioteket i detta repo. Detta bibliotek hittar du i underkatalogen ***code/atmega328p-library***.*
 
 Om ett 64-bitars system används kommer både pekare samt variabler av datatypen size_t allokera 8 byte (64 bitar) varv. Därmed kommer en vektor uppta minst 16 byte. I praktiken är vektorer ännu större på grund av ytterligare attribut, exempelvis 24 byte när vi använder tidigare nämnd online-kompilator.
 
