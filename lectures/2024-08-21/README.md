@@ -9,7 +9,8 @@
 
 ## Instruktioner
 * Kolla gärna kursplan samt preliminär planering på Classroom.
-* Läs om vektorer under fliken *information* nedan.
+* Läs om vektorer nedan.
+* Se övningsuppgifter i underkatalogen *exercises*.
 
 ## Utvärdering
 * Några synpunkter på lektionen i sig?
@@ -59,7 +60,7 @@ För att använda vektorer behöver vi inkludera standardheadern *vector:*
 ```
 Som nämndes tidigare gäller att allt som ingår i C++ standardbibliotek är implementerat i namnrymden *std*. När vi skapar en vektor från C++ standardbibliotek måste vi alltså föregå typen *vector* med *std*. Därmed måste vi skriva *std::vector*, vilket kan utläsas som *standardbibliotekets typ vector*. De två kolonnen utgör alltså en separator mellan namnrymden *std* samt typen *vector* (som är implementerad i denna namnrymd).
 
-När vi skapar en vektor måste vi också välja vilken typ av datatyp denna ska innehålla, exempelvis heltal, flyttal eller text (exempelvis via *int, double* respektive *const char**). Detta gör vi genom att deklarera datatypen inuti olikhetstecken <> direkt efter *std::vector*, exempelvis *std::vector<int>*. 
+När vi skapar en vektor måste vi också välja vilken typ av datatyp denna ska innehålla, exempelvis heltal, flyttal eller text (exempelvis via *int, double* respektive *const char**). Detta gör vi genom att deklarera datatypen inuti olikhetstecken <> direkt efter *std::vector*, exempelvis *std::vector&lt;int&gt;*. 
 
 Som exempel, för att skapa en tom vektor döpt *numbers* innehållande heltal av datatypen *int* kan följande instruktion användas:
 
