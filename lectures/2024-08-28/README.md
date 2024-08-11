@@ -1820,7 +1820,7 @@ Efter att ha gått igenom detta stycke bör du som läsare ha tillräckligt med 
 * Dela upp en klass i en headerfil samt en källkodsfil.
 * Skapa enumerationsklasser.
 
-Testa gärna dina kunskaper genom att genomföra övningsuppgiften i underkatalogen *exercise.* 
+Testa gärna dina kunskaper genom att genomföra övningsuppgiften i underkatalogen *exercises.* 
 
 #### Fördjupning
 Det finns mycket mer att lära sig om klasser och objektorientering än vad som presenterades här; detta ämne hade kunnat täcka en hel kurs. 
