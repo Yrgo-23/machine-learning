@@ -102,8 +102,7 @@ sudo snap install code --classic
 ### Kompilering samt körning av kod
 
 #### Alternativ 1 - Online-kompilator
-Du kan använda följande online-kompilator för att enkelt kompilera och köra program:  
-https://www.onlinegdb.com/online_c_compiler. 
+Du kan använda denna [online-kompilator](https://www.onlinegdb.com/online_c_compiler) för att enkelt kompilera och köra program. 
 
 **OBS! Byt språk till C++17 innan du trycker *Run*!**
 

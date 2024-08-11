@@ -821,9 +821,7 @@ Instruktioner för byggande samt körande av koden finns i bifogad README-fil.
 ### Ytterligare information
 **1.** Under nästa lektion kommer vi gå igenom hur man kan implementera så kallade funktionstemplates för att möjliggöra att funktioner kan ta emot vektorer av olika datatyper. Vi kan också lägga till så kallade *constraints* (begränsningar) på vilka typer som kan användas, exempelvis så att funktionen *vector::assign* enbart kan användas för numeriska typer såsom *int*, *double* samt *std::size_t*.
 
-**2.** Lite mer kortfattad information om vektorer finns här:  
-https://www.geeksforgeeks.org/vector-in-cpp-stl/
+**2.** Lite mer kortfattad information om vektorer finns [här](https://www.geeksforgeeks.org/vector-in-cpp-stl/).  
 
-**3.** Mer detaljerad information om vektorer finns här:  
-https://en.cppreference.com/w/cpp/container/vector
+**3.** Mer detaljerad information om vektorer finns [här](https://en.cppreference.com/w/cpp/container/vector).  
 
