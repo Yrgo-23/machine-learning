@@ -480,7 +480,7 @@ private:
 
 Vi har lagt till två nyckelord i klassen, *public* och *private*:
 * Allt som faller under nyckelordet *public* är synligt och åtkomligt utanför klassen. Allt som vi vill att "användaren" av klassen ska kunna se och använda ska deklareras här, exempelvis metoder (funktioner) för att läsa personens namn, ålder med mera, samt för att kunna skriva ut person datan i terminalen.
-* Allt som faller under nyckelordet *private* är inte synligt eller åtkomligt utanför klassen. Här placerar vi allt som vi vill vara icke åtkomligt för "användaren" av klassen, exempelvis hemlig data eller implementationsdetaljer. I vårt fall placerar vi samtliga medlemsvariabler här, då vi inte vill att "användaren" ska kunna ändra på dessa hur som helst. Vi kan också placera metoder som bara ska användas internt i klassen här.
+* Allt som faller under nyckelordet *private* är inte synligt eller åtkomligt utanför klassen. Här placerar vi allt som vi vill vara icke åtkomligt för "användaren" av klassen, exempelvis hemlig data eller implementationsdetaljer. I vårt fall placerar vi samtliga medlemsvariabler här, då vi inte vill att "användaren" ska kunna ändra på dessa hur som helst. Vi kan också placera metoder som bara ska användas internt i klassen här. Att döja information på detta sätt kallas *inkapsling.*
 
 Som default är allt i en klass privat. Normalt placeras allt som är publikt först i klassen, så att "användaren" vid behov enkelt kan kolla in vad för metoder och annat som hen har till sitt förfogande. Implementationsdetaljerna placerar vi efteråt i den privata delen av klassen och meningen är att användaren inte ens ska behöva (eller vilja) läsa ned hit. 
 
@@ -1808,8 +1808,25 @@ int main()
 }
 ```
 
-#### Slutord
-Filer *person.h,* *person.cpp* samt *main.cpp* finns tillgängliga i underkatalogen *person*, tillsammans med en makefil för kompilering och körning av koden.
+#### Slutförd komimplementation
+Filer *person.h,* *person.cpp* samt *main.cpp* finns tillgängliga i underkatalogen *person*, tillsammans med en makefil för kompilering och körning av koden.   Instruktioner för byggande samt körande av koden finns i bifogad README-fil.
+
+#### Sammanfattning
+Efter att ha gått igenom detta stycke bör du som läsare ha tillräckligt med kunskap för att skapa en mindre klass.
+* Kunna styra vad som är synligt respektive inte synligt utanför en klass.
+* Dölja hemlig data samt informationsdetaljer i en klass via inkapsling.
+* Kunna skapa konstruktorer för att initiera objekt av klassen i fråga.
+* Kunna styra vad som kan läsas samt vad som kan läsas och skrivas via get- och set-metoder.
+* Dela upp en klass i en headerfil samt en källkodsfil.
+* Skapa enumerationsklasser.
+
+Testa gärna dina kunskaper genom att genomföra övningsuppgiften i underkatalogen *exercise.* 
+
+#### Fördjupning
+Det finns mycket mer att lära sig om klasser och objektorientering än vad som presenterades här; detta ämne hade kunnat täcka en hel kurs. 
+För mer information:
+* Se boken [*The C++ Programming Language*](https://www.adlibris.com/se/bok/c-programming-language-the-9780321958327) av Bjarne Stroustrup, skapare av C++. Denna bok täcker det mesta som behöver kännas till om modern C++ (förutom sådant som har kommit till efter att den senaste upplagan släpptes), inte bara klasser. 
+* En hel del fördjupad information finns också i klass-avsnittet på [*cplusplus.com*](https://cplusplus.com/doc/tutorial/classes/).  
 
 
 
