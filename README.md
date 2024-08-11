@@ -8,6 +8,13 @@ Kod för diverse övnings- och inlämningsuppgifter finns i katalogen *code*.
 
 ### Klona repot lokalt
 
+Se till att du har *git* installerat innan du klonar repot:
+
+```bash
+sudo apt -y update
+sudo apt -y install git
+```
+
 Klona repot med följande kommando i en Linux-terminal, Git Bash eller dylikt:
 
 ```bash
