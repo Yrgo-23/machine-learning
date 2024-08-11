@@ -9,7 +9,7 @@ Du ska skapa en klass döpt *Device*, kan lagra följande data gällande en enhe
 * Färg i form av text.
 * Enhetens produktionsstatus i form av en enumerationsklass *ProductStatus*, se mer information i uppgift 2.
 
-*Använd gärna en makefil för kompilering och körning, se underkatalogen *person* under dagens lektion.*
+*Använd gärna en makefil för kompilering och körning av programmet, se underkatalogen *person* under dagens lektion.*
 
 ### Uppgift 1
 Skapa en fil döpt *device.h*. Se till att filens innehåll bara definieras en gång. 

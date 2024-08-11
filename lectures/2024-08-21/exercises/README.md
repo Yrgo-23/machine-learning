@@ -1,7 +1,9 @@
 # 2024-08-21 - Övningsuppgifter
 
+*Använd gärna en makefil för kompilering och körning av programmet, se instruktioner i README-filen i roten av detta repo.*
+
 ## Uppgift 1
-Skapa en funktion döpt *getSmallestInt*, som returnerar det minst talet i en vektor innehållande heltal av datatypen *int*.  
+Skapa en fil döpt *main.cpp*. I denna fil, skapa en funktion döpt *getSmallestInt*, som returnerar det minst talet i en vektor innehållande heltal av datatypen *int*.  
 
 Som exempel:
 * Om en vektor innehållande talen {3, 6, 4, 8, 6, 8, -2, -1} passeras ska heltalet -2 returneras.

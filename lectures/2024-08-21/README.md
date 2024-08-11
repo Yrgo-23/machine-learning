@@ -21,12 +21,9 @@
 
 ## För samtliga kodexempel
 
-Vänligen använd följande online-kompilator:  
-https://www.onlinegdb.com/online_c_compiler.  
+Se avsnittet *Kompilering samt körning av kod* i README-filen sparad i roten av detta repo.
 
-**OBS! Byt språk till C++17 innan du trycker *Run*!**
-
-Skriv följande program och tryck *Run*:
+Oavsett om du använder en online-kompilator eller GCC-kompilatorn i Linux, kompilera och kör följande program i en fil döpt *main.cpp:*
 
 ```cpp
 #include <iostream>
@@ -40,8 +37,11 @@ int main()
 ```
 
 Utskriften bör bli:  
-*Hello to C++!*  
-*We're going to use this language for machine learning!*
+
+```
+Hello to C++!
+We're going to use this language for machine learning!
+```
 
 Några saker att notera:
 * Vi börjar med att inkludera standardheadern *iostream*, som innehåller funktioner och operatorer för utskrift.
@@ -808,12 +808,15 @@ int main()
 {
     std::vector<int> numbers{};
     std::ofstream ostream{"numbers.txt"};
-    vector::assign(numbers, 100);
+    vector::assign(numbers, 50, 100, 2);
     vector::print(numbers);
     vector::print(numbers, ostream);
     return 0;
 }
 ```
+
+Ovanstående program finns tillgänglig tillsammans med en makefil för kompilering och körning av koden i underkatalogen *vector.*   
+Instruktioner för byggande samt körande av koden finns i bifogad README-fil.
 
 ### Ytterligare information
 **1.** Under nästa lektion kommer vi gå igenom hur man kan implementera så kallade funktionstemplates för att möjliggöra att funktioner kan ta emot vektorer av olika datatyper. Vi kan också lägga till så kallade *constraints* (begränsningar) på vilka typer som kan användas, exempelvis så att funktionen *vector::assign* enbart kan användas för numeriska typer såsom *int*, *double* samt *std::size_t*.
@@ -821,5 +824,6 @@ int main()
 **2.** Lite mer kortfattad information om vektorer finns här:  
 https://www.geeksforgeeks.org/vector-in-cpp-stl/
 
-**3.** Mer detaljerad information om vektorer finns här:  https://en.cppreference.com/w/cpp/container/vector
+**3.** Mer detaljerad information om vektorer finns här:  
+https://en.cppreference.com/w/cpp/container/vector
 

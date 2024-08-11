@@ -263,9 +263,9 @@ void print(const std::vector<T>& data, std::ostream& ostream = std::cout)
     }
     ostream << "--------------------------------------------------------------------------------\n\n";
 }
-
 ```
 
+#### Slutförd komimplementation
 Nedan visas hur funktionen *print*, här implementerad i en namnrymd döpt *vector* används för att skriva ut tal (hel- och flyttal) samt text. Vårt *type_trait* *is_string* har här implementerats i en namnrymd namngiven *type_traits:*
 
 ```cpp
@@ -350,3 +350,8 @@ int main()
     return 0;
 }
 ```
+
+#### Slutförd komimplementation
+Koden ovan finns tillgänglig tillsammans med en makefil för kompilering och körning av koden i underkatalogen *function_template.*  
+Instruktioner för byggande samt körande av koden finns i bifogad README-fil.
+

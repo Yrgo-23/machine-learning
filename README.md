@@ -99,4 +99,80 @@ Däremot om använder en ren Linux-miljö, skriv följande kommando:
 ```bash
 sudo snap install code --classic
 ```
+### Kompilering samt körning av kod
 
+#### Alternativ 1 - Online-kompilator
+Du kan använda följande online-kompilator för att enkelt kompilera och köra program:  
+https://www.onlinegdb.com/online_c_compiler. 
+
+**OBS! Byt språk till C++17 innan du trycker *Run*!**
+
+#### Alternativ 2 - GCC-kompilatorn i Linux
+Om du använder en Linux-miljö kan du använda *make* för att kompilera och köra koden.
+
+Se först till att du har GCC-kompilatorn samt *make* installerat.   
+Installera därmed paketet *build-essential* samt *make:*
+
+```bash
+sudo apt -y update
+sudo apt -y install build-essential
+sudo apt -y install make
+```
+
+För varje program, skapa en ny katalog, exempelvis *example-dir:*:
+
+```bash
+mkdir example-dir
+cd example-dir
+```
+
+I denna katalog, skapa en fil döpt *makefile:*
+
+```bash
+touch makefile
+```
+
+I denna makefil, lägg till följande innehåll:
+
+```bash
+################################################################################
+# Builds the project and runs the program as default.
+################################################################################
+default: build run
+
+################################################################################
+# @brief Builds the project and creates an executable called main.
+# 
+# @note Add all your source files (.cpp extension) between "g++" and "-o".
+################################################################################
+build:
+	@g++ main.cpp -o main -Wall -Werror
+
+################################################################################
+# @brief Runs the program (by running the main executable)
+################################################################################
+run:
+	@./main
+```
+
+För att kompileringen ska fungera:
+* Placera samtliga header- och källkodsfiler (.h- samt .cpp-filer) direkt i denna katalog. Om ni vill använda underkataloger, säg till mig, så hjälper jag er.
+* Se till att lägga till samtliga källkodsfiler (.cpp-filer) mellan *g++" samt *-o" under vårt build-target.
+
+Tack vara denna makefil kan du sedan kompilera och köra ditt program via följande kommando (i denna katalog):
+
+```bash
+make
+```
+
+Du kan också enbart bygga ditt program utan att köra det efteråt via följande kommando:
+
+```bash
+make build
+```
+
+Du kan köra ditt program utan att kompilera innan via följande kommando:
+
+```bash
+make run
+```
