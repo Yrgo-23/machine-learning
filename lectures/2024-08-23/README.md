@@ -351,7 +351,6 @@ int main()
 }
 ```
 
-#### Slutförd komimplementation
-Koden ovan finns tillgänglig tillsammans med en makefil för kompilering och körning av koden i underkatalogen *function_template.*  
+Koden ovan finns tillgänglig tillsammans med en makefil för kompilering och körning av koden i underkatalogen *function_template.* 
 Instruktioner för byggande samt körande av koden finns i bifogad README-fil.
 
