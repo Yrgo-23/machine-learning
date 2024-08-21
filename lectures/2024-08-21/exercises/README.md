@@ -1,6 +1,7 @@
 # 2024-08-21 - Övningsuppgifter
 
-*Använd gärna en makefil för kompilering och körning av programmet, se instruktioner i README-filen i roten av detta repo.*
+* Se lösningsförslag i underkatalogen `solutions`.
+* Använd gärna en makefil för kompilering och körning av programmet, se instruktioner i README-filen i roten av detta repo.
 
 ## Uppgift 1
 Skapa en fil döpt *main.cpp*. I denna fil, skapa en funktion döpt *getSmallestInt*, som returnerar det minsta talet i en vektor innehållande heltal av datatypen *int*.  
@@ -12,7 +13,7 @@ Som exempel:
 
 Placera denna funktion i en namnrymd döpt *vector*.  
 
-Testa att fuktionen fungerar korrekt genom att skriva ut returvärdet vid anrop med följande vektorer:
+Testa att funktionen fungerar korrekt genom att skriva ut returvärdet vid anrop med följande vektorer:
 
 ```cpp
 const std::vector<int> v1{3, 6, 4, 8, 6, 8, -2, -1}; 
