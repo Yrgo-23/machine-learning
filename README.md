@@ -6,14 +6,50 @@ Lektionsplaneringar samt lektionsanteckningar finns i katalogen *lectures*.
 
 Kod för diverse övnings- och inlämningsuppgifter finns i katalogen *code*.
 
-### Klona repot lokalt
+### Installera Visual Studio Code
 
-Se till att du har *git* installerat innan du klonar repot:
+Om du använder en Linux-miljö inuti Windows, såsom WSL eller Git bash, installera Visual Studio Code från Microsoft Store.
+
+Däremot om använder en ren Linux-miljö, skriv följande kommando:
+
+```bash
+sudo snap install code --classic
+```
+
+### Ladda ned och installera WSL
+
+WSL *(Windows Subsystem For Linux)* möjliggör att vi kan köra en Linux-distribution i terminalmiljö på en Windows-dator. Använd med fördel WSL för att:
+* Klona repot lokalt och skapa egna revisioner av koden.
+* Bygga, lagra samt köra kodexempel samt egna revisioner i detta repo.
+* Bygga, lagra samt köra diverse C- och C++-program.
+
+För att ladda ned WSL, börja med att öppna Windows Powershell som administratör. Skriv sedan följande kommandon:
+
+```bash
+wsl --install
+wsl --set-default-version 2
+```
+
+När installationen är klar, öppna Microsoft Store och ladda ned den senaste versionen av Linux-distributionen `Ubuntu`. Sök därmed på `Ubuntu` i Microsoft Store. Ett flertal alternativ kommer dyka upp:
+* Notera att befintliga distributioner är daterade efter släppdatum, så exempelvis `Ubuntu 22.04` släpptes i april 2022.
+* Välj den senaste befintliga distributionen (som för tillfället är `Ubuntu 24.04 LTS`, som släpptes i år).
+
+Efter att installationen är slutförd, skriv `Ubuntu` i Windows Search (sökrutan i det nedra vänsta hörnet). Klicka på din Ubuntu-distribution. En svart ruta kommer öppnas, vilket är din Linux-terminal i din Windows-miljö.
+
+Först gången kommer du ombeds att lägga till användarnamn och lösenord, vilket enbart kommer användas i terminalen:
+* Välj ett kort och användarnamn, så som ditt förnamn.
+* Välj ett lämpligt lösenord och se till att spara detta på lämpligt sätt.
+
+Ladda ned nödvändiga paket för att kompilera kod, använda Git med mera:
 
 ```bash
 sudo apt -y update
+sudo apt -y install build-essential
+sudo apt -y install make
 sudo apt -y install git
 ```
+
+### Klona repot lokalt
 
 Klona repot med följande kommando i en Linux-terminal, Git Bash eller dylikt:
 
@@ -90,15 +126,6 @@ Det som görs ovan är att du:
 Även om du använder en egen branch är det rekommenderat att du synkroniserar den lokala main-branchen
 med remote main-branch såsom visades ovan.
 
-### Installera Visual Studio Code
-
-Om du använder en Linux-miljö inuti Windows, såsom WSL eller Git bash, installera Visual Studio Code från Microsoft Store.
-
-Däremot om använder en ren Linux-miljö, skriv följande kommando:
-
-```bash
-sudo snap install code --classic
-```
 ### Kompilering samt körning av kod
 
 #### Alternativ 1 - Online-kompilator
