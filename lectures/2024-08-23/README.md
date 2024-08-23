@@ -155,14 +155,6 @@ Vi kan använda en eller flera av ovanstående *type traits* i funktionen `print
 std::is_arithmetic<T>::value
 ```
 
-Det går så klart att kontrollera ifall medlemmen *value* är `true` explicit:
-
-```cpp
-std::is_arithmetic<T>::value == true
-```
-
-I resten av detta avsnitt kommer vi dock slopa explicit kontroll av booleska värden.
-
 Eftersom kontrollen genomförs vid kompilering använder vi inte en if-sats för att kontrollera påståendet. I stället gör vi en statisk kontroll av påståendet, alltså en kontroll redan under kompileringen, via deklarationen `static_assert`:
 
 ```cpp
