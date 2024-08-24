@@ -1,7 +1,7 @@
 /********************************************************************************
  * @brief Implementation details of miscellaneous utility function templates.
  * 
- * @note Don't include this file directly.
+ * @note Don't include this header, use <utils.h> instead!
  ********************************************************************************/
 #pragma once
 

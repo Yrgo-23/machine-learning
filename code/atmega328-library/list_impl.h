@@ -1,7 +1,7 @@
 /********************************************************************************
  * @brief Implementation details of the container::List class.
  * 
- * @note Don't include this file directly.
+ * @note Don't include this header, use <list.h> instead!
  ********************************************************************************/
 #pragma once
 

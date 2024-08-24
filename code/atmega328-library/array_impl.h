@@ -1,7 +1,7 @@
 /********************************************************************************
  * @brief Implementation details of the container::Array class.
  * 
- * @note Don't include this file directly.
+ * @note Don't include this header, use <array.h> instead!
  ********************************************************************************/
 #pragma once
 

@@ -1,7 +1,5 @@
 /********************************************************************************
  * @brief Implementation details of miscellaneous utility functions.
- * 
- * @note Don't include this file directly.
  ********************************************************************************/
  #include "utils.h"
 
@@ -10,7 +8,7 @@
  {
      for (uint16_t i{}; i < delayTimeS; ++i)
      {
-         _delay_ms(1000);
+         _delay_ms(1000U);
      }
  }
 
@@ -19,7 +17,7 @@
  {
      for (uint16_t i{}; i < delayTimeMs; ++i)
      {
-         _delay_ms(1);
+         _delay_ms(1U);
      }
  }
 
@@ -28,6 +26,6 @@
  {
      for (uint16_t i{}; i < delayTimeUs; ++i)
      {
-         _delay_us(1);
+         _delay_us(1U);
      }
  }

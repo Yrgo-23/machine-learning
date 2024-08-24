@@ -1,7 +1,7 @@
 /********************************************************************************
  * @brief Implementation details for ATmega328P EEPROM driver.
  *
- * @note Don't include this file directly.
+ * @note Don't include this header, use <eeprom.h> instead!
  ********************************************************************************/
 #pragma once
 

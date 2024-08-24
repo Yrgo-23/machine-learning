@@ -9,15 +9,15 @@ namespace driver
 
 struct CallbackIndex
 {
-    static constexpr uint8_t PortB{0};
-    static constexpr uint8_t PortC{1};
-    static constexpr uint8_t PortD{2};
+    static constexpr uint8_t PortB{0U};
+    static constexpr uint8_t PortC{1U};
+    static constexpr uint8_t PortD{2U};
 };
 
 namespace
 {
 
-constexpr uint8_t NumIoPorts{3}; 
+constexpr uint8_t NumIoPorts{3U}; 
 container::CallbackArray<NumIoPorts> callbacks{};
 
 } // namespace

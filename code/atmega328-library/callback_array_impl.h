@@ -1,7 +1,7 @@
 /********************************************************************************
- * @brief Implementation details of the container::ContainerArray class.
+ * @brief Implementation details of the container::CallbackArray class.
  * 
- * @note Don't include this file directly.
+ * @note Don't include this header, use <callback_array.h> instead!
  ********************************************************************************/
 #pragma once
 

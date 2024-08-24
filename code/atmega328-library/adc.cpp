@@ -11,9 +11,9 @@ namespace adc
 namespace 
 {
 
-constexpr uint16_t MinVal{0};
-constexpr uint16_t MaxVal{1023};
-constexpr uint8_t AdcPortOffset{14};
+constexpr uint16_t MinVal{0U};
+constexpr uint16_t MaxVal{1023U};
+constexpr uint8_t AdcPortOffset{14U};
 
 // -----------------------------------------------------------------------------
 constexpr bool isPinNumberValid(const uint8_t pin) 
@@ -41,7 +41,7 @@ double getDutyCycle(const uint8_t pin)
 // -----------------------------------------------------------------------------
 uint16_t read(const uint8_t pin) 
 {
-   if (!isPinNumberValid(pin)) { return 0; }
+   if (!isPinNumberValid(pin)) { return 0U; }
    ADMUX = (1 << REFS0) | isPinAdjustedForOffset(pin);
    utils::set(ADCSRA, ADEN, ADSC, ADPS0, ADPS1, ADPS2);
    while (!utils::read(ADCSRA, ADIF));

@@ -17,14 +17,14 @@ struct ControlBits
 
 struct TimerIndex 
 {
-	static constexpr uint8_t Timer0{0};
-	static constexpr uint8_t Timer1{1};
-	static constexpr uint8_t Timer2{2};
+	static constexpr uint8_t Timer0{0U};
+	static constexpr uint8_t Timer1{1U};
+	static constexpr uint8_t Timer2{2U};
 };
 
 namespace
 {    
-constexpr uint8_t kNumCircuits{3};
+constexpr uint8_t kNumCircuits{3U};
 container::CallbackArray<kNumCircuits> callbacks{};
 container::Array<Timer*, kNumCircuits> timers{};
 
@@ -47,7 +47,7 @@ void generateCallback(const uint8_t timerIndex)
 // -----------------------------------------------------------------------------
 Timer::Hardware Timer::myHwTimer0 
 {
-    .counter = 0,
+    .counter = 0U,
     .maskReg = &TIMSK0,
     .maskBit = TOIE0,
     .index = TimerIndex::Timer0
@@ -56,7 +56,7 @@ Timer::Hardware Timer::myHwTimer0
 // -----------------------------------------------------------------------------
 Timer::Hardware Timer::myHwTimer1 
 {
-    .counter = 0,
+    .counter = 0U,
 	.maskReg = &TIMSK1,
     .maskBit = OCIE1A,
 	.index = TimerIndex::Timer1
@@ -65,7 +65,7 @@ Timer::Hardware Timer::myHwTimer1
 // -----------------------------------------------------------------------------
 Timer::Hardware Timer::myHwTimer2 
 {
-    .counter = 0,
+    .counter = 0U,
     .maskReg = &TIMSK2,
     .maskBit = TOIE2,
 	.index = TimerIndex::Timer2
@@ -128,7 +128,7 @@ void Timer::start()
 { 
     utils::globalInterruptEnable();
 
-    if (myMaxCount > 0) 
+    if (myMaxCount > 0U) 
     {
 	    utils::set(*(myHardware->maskReg), myHardware->maskBit);
 	    myEnabled = true;
@@ -148,7 +148,7 @@ void Timer::toggle() { setEnabled(!myEnabled); }
 // -----------------------------------------------------------------------------
 void Timer::restart() 
 {
-    myHardware->counter = 0;
+    myHardware->counter = 0U;
     start();
 }
 
@@ -187,7 +187,7 @@ bool Timer::hasElapsed()
 	} 
 	else 
 	{
-	    myHardware->counter = 0;
+	    myHardware->counter = 0U;
 		return true;
 	}
 }

@@ -1,7 +1,7 @@
 /********************************************************************************
  * @brief Implementation details of the container::Vector class.
  * 
- * @note Don't include this file directly.
+ * @note Don't include this header, use <vector.h> instead!
  ********************************************************************************/
 #pragma once 
 

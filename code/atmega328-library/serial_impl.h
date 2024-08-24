@@ -1,7 +1,7 @@
 /********************************************************************************
- * @brief Implementation details of serial driver.
+ * @brief Implementation details of the ATMega328P serial driver.
  *
- * @note Don't include this file directly.
+ * @note Don't include this header, use <serial.h> instead!
  ********************************************************************************/
 #pragma once
 
@@ -24,14 +24,14 @@ static constexpr char NewLine{'\n'};
 // -----------------------------------------------------------------------------
 constexpr uint16_t getBaudRateValue(const uint32_t baudRateKbps)
 {
-    return baudRateKbps == 9600 ? 103 :
+    return baudRateKbps == 9600U ? 103U :
         utils::round<uint16_t>(F_CPU / 16.0 * baudRateKbps);
 }
 
 // -----------------------------------------------------------------------------
 void printChar(const char c)
 {
-    while (utils::read(UCSR0A, UDRE0) == 0);
+    while (utils::read(UCSR0A, UDRE0) == 0U);
     UDR0 = c;
 }
 
@@ -75,7 +75,7 @@ bool printf(const char* format, const Args&... args)
         const int length{snprintf(nullptr, 0, format, nullptr)};
         char* buffer{(char*)malloc(sizeof(char) * length)};
         if (!buffer) { return false; }
-        buffer[0] = '\0';
+        buffer[0U] = '\0';
         sprintf(buffer, format, args...);
         detail::print(buffer);
         free(buffer);
