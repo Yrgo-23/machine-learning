@@ -162,7 +162,7 @@ I denna makefil, lägg till följande innehåll:
 
 ```bash
 ################################################################################
-# Builds the project and runs the program as default.
+# @brief Builds the project and runs the program as default.
 ################################################################################
 default: build run
 
@@ -179,6 +179,12 @@ build:
 ################################################################################
 run:
 	@./main
+
+################################################################################
+# @brief Removes compiled files (by deleting the main executable).
+################################################################################
+clean:
+	@rm -f main
 ```
 
 För att kompileringen ska fungera:
@@ -201,4 +207,10 @@ Du kan köra ditt program utan att kompilera innan via följande kommando:
 
 ```bash
 make run
+```
+
+Du kan också ta bort kompilerade filer via följande kommando:
+
+```bash
+make clean
 ```

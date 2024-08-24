@@ -10,11 +10,11 @@ build:
 	@g++ main.cpp -o main -Wall -Werror
 
 ################################################################################
-# @brief Runs the program (by running the main executable).
+# @brief Runs the program (by running the main executable)
 ################################################################################
 run:
 	@./main
-
+	
 ################################################################################
 # @brief Removes compiled files (by deleting the main executable).
 ################################################################################

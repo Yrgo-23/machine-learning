@@ -33,3 +33,9 @@ Du kan köra programmet utan att kompilera innan via följande kommando:
 ```bash
 make run
 ```
+
+Du kan också ta bort kompilerade filer via följande kommando:
+
+```bash
+make clean
+```
