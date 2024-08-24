@@ -21,6 +21,15 @@ struct is_unsigned
 };
 
 /********************************************************************************
+ * @brief Declares bool as a valid unsigned integral type.
+ ********************************************************************************/
+template <>
+struct is_unsigned<bool> 
+{
+   static const bool value{true};
+};
+
+/********************************************************************************
  * @brief Declares uint8_t as a valid unsigned integral type.
  ********************************************************************************/
 template <>
@@ -158,6 +167,85 @@ template <typename T>
 struct is_arithmetic 
 {
     static const bool value{is_integral<T>::value || is_floating_point<T>::value};
+};
+
+/********************************************************************************
+ * @brief Indicates if specified type T is of string type.
+ * 
+ * @tparam T The type to check.
+ *
+ * @param value Constant set to true for string types, false for everything else.
+ ********************************************************************************/
+template <typename T>
+struct is_string
+{
+    static const bool value{false};
+};
+
+/********************************************************************************
+ * @brief Declares const char* as a valid string type.
+ ********************************************************************************/
+template <>
+struct is_string<const char*> 
+{
+    static const bool value{true};
+};
+
+/********************************************************************************
+ * @brief Declares char* as a valid string type.
+ ********************************************************************************/
+template <>
+struct is_string<char*> 
+{
+    static const bool value{true};
+};
+
+/******************************************************************************** 
+ * @brief Indicates if specified type T is a pointer.
+ * 
+ * @tparam T The type to check.
+ *
+ * @param value Constant set to true for pointers, false for everything else.
+ ********************************************************************************/
+template <typename T>
+struct is_pointer
+{
+    static const bool value{false};
+};
+
+/********************************************************************************
+ * @brief Declares all pointer types to be pointers.
+ * 
+ * @param T The pointer type.
+ ********************************************************************************/
+template <typename T>
+struct is_pointer<T*>
+{
+    static const bool value{true};
+};
+
+/********************************************************************************
+ * @brief Indicates if specified type T is a reference.
+ * 
+ * @tparam T The type to check.
+ *
+ * @param value Constant set to true for references, false for everything else.
+ ********************************************************************************/
+template <typename T>
+struct is_reference
+{
+    static const bool value{false};
+};
+
+/********************************************************************************
+ * @brief Declares all reference types to be references.
+ * 
+ * @param T The reference type.
+ ********************************************************************************/
+template <typename T>
+struct is_reference<T&>
+{
+    static const bool value{true};
 };
 
 } // namespace type_traits
