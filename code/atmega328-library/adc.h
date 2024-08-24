@@ -15,12 +15,12 @@ namespace adc
  ********************************************************************************/
 struct Pin 
 {
-	static constexpr uint8_t A0{0}; // Pin A0 = 0
-	static constexpr uint8_t A1{1}; // Pin A1 = 1
-	static constexpr uint8_t A2{2}; // Pin A2 = 2
-	static constexpr uint8_t A3{3}; // Pin A3 = 3
-	static constexpr uint8_t A4{4}; // Pin A4 = 4
-	static constexpr uint8_t A5{5}; // Pin A5 = 5
+    static constexpr uint8_t A0{0}; // Pin A0 = 0
+    static constexpr uint8_t A1{1}; // Pin A1 = 1
+    static constexpr uint8_t A2{2}; // Pin A2 = 2
+    static constexpr uint8_t A3{3}; // Pin A3 = 3
+    static constexpr uint8_t A4{4}; // Pin A4 = 4
+    static constexpr uint8_t A5{5}; // Pin A5 = 5
 };
 
 /********************************************************************************
@@ -28,12 +28,12 @@ struct Pin
  ********************************************************************************/
 struct Port
  {
-	static constexpr uint8_t C0{14}; // PORTC0 = pin 14
-	static constexpr uint8_t C1{15}; // PORTC1 = pin 15
-	static constexpr uint8_t C2{16}; // PORTC2 = pin 16
-	static constexpr uint8_t C3{17}; // PORTC3 = pin 17
-	static constexpr uint8_t C4{18}; // PORTC4 = pin 18
-	static constexpr uint8_t C5{19}; // PORTC5 = pin 10
+    static constexpr uint8_t C0{14}; // PORTC0 = pin 14
+    static constexpr uint8_t C1{15}; // PORTC1 = pin 15
+    static constexpr uint8_t C2{16}; // PORTC2 = pin 16
+    static constexpr uint8_t C3{17}; // PORTC3 = pin 17
+    static constexpr uint8_t C4{18}; // PORTC4 = pin 18
+    static constexpr uint8_t C5{19}; // PORTC5 = pin 10
 };
 
 /********************************************************************************
@@ -79,8 +79,8 @@ uint16_t read(const uint8_t pin);
  ********************************************************************************/
 bool getDutyCycleParameters_ms(const uint8_t pin, 
                                const uint8_t pwmPeriodMs, 
-							   uint8_t& pwmOnTimeMs, 
-							   uint8_t& pwmOffTimeMs);
+                               uint8_t& pwmOnTimeMs, 
+                               uint8_t& pwmOffTimeMs);
 
 /********************************************************************************
  * @brief Reads the analog input of specified pin and calculates the 
@@ -98,7 +98,7 @@ bool getDutyCycleParameters_ms(const uint8_t pin,
  ********************************************************************************/
 bool getDutyCycleParameters_us(const uint8_t pin,
                                const uint16_t pwmPeriodUs, 
-							   uint16_t& pwmOnTimeUs, 
-							   uint16_t& pwmOffTimeUs);
+                               uint16_t& pwmOnTimeUs, 
+                               uint16_t& pwmOffTimeUs);
 } // namespace adc
 } // namespace driver

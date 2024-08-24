@@ -36,7 +36,7 @@ constexpr void set(volatile T& reg, const uint8_t bit)
 {
     static_assert(type_traits::is_unsigned<T>::value, 
         "Invalid data type used for bit manipulation!");
-	reg |= (1ULL << bit);
+    reg |= (1ULL << bit);
 }
 
 // -----------------------------------------------------------------------------
@@ -46,7 +46,7 @@ constexpr void set(volatile T& reg, const uint8_t bit, const Bits&&... bits)
     static_assert(type_traits::is_unsigned<T>::value, 
         "Invalid data type used for bit manipulation!");
     set(reg, bit);
-	set(reg, forward<const Bits>(bits)...);
+    set(reg, forward<const Bits>(bits)...);
 }
 
 // -----------------------------------------------------------------------------
@@ -65,7 +65,7 @@ constexpr void clear(volatile T& reg, const uint8_t bit, const Bits&&... bits)
     static_assert(type_traits::is_unsigned<T>::value, 
         "Invalid data type used for bit manipulation!");
     clear(reg, bit);
-	clear(reg, forward<const Bits>(bits)...);
+    clear(reg, forward<const Bits>(bits)...);
 }
 
 // -----------------------------------------------------------------------------
@@ -82,7 +82,7 @@ template <typename T, typename... Bits>
 constexpr void toggle(volatile T& reg, const uint8_t bit, const Bits&&... bits)  
 {
     toggle(reg, bit);
-	toggle(reg, forward<const Bits>(bits)...);
+    toggle(reg, forward<const Bits>(bits)...);
 }
 
 // -----------------------------------------------------------------------------
@@ -107,14 +107,14 @@ constexpr bool read(const volatile T& reg, const uint8_t bit, const Bits&&... bi
 template <typename T1, typename T2, typename T3>
 T3 power(const T1 base, const T2 exponent) 
 {
-	static_assert(type_traits::is_arithmetic<T1>::value &&
-	              type_traits::is_arithmetic<T2>::value &&
-	              type_traits::is_arithmetic<T3>::value,
-	              "Calculation of power only possible for arithmetic types!");
-	T1 num{1};
-	for (uint16_t i{}; i < exponent; ++i) 
+    static_assert(type_traits::is_arithmetic<T1>::value &&
+                  type_traits::is_arithmetic<T2>::value &&
+                  type_traits::is_arithmetic<T3>::value,
+                  "Calculation of power only possible for arithmetic types!");
+    T1 num{1};
+    for (uint16_t i{}; i < exponent; ++i) 
     {
-	    num *= base;
+        num *= base;
     }
     return static_cast<T3>(num);
 }
@@ -125,7 +125,7 @@ constexpr T1 round(const T2 value)
 {
     static_assert(type_traits::is_integral<T1>::value && 
                   type_traits::is_arithmetic<T2>::value, 
-	              "Rounding only possible for arithmetic types!");
+                  "Rounding only possible for arithmetic types!");
     return static_cast<T1>(value + 0.5);
 }
 

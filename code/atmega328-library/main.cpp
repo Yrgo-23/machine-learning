@@ -36,11 +36,11 @@ void buttonCallback(void)
     button1.disableInterruptsOnIoPort();
     timer0.start();
 
-	if (button1.read()) 
-	{
-		timer1.toggle();
-		if (!timer1.isEnabled()) { led1.clear(); }
-	}
+    if (button1.read()) 
+    {
+        timer1.toggle();
+        if (!timer1.isEnabled()) { led1.clear(); }
+    }
 }
 
 /********************************************************************************
@@ -67,13 +67,13 @@ void timer1Callback(void)
  ********************************************************************************/
 inline void setup(void) 
 {
-	button1.addCallback(buttonCallback);
-	timer0.addCallback(timer0Callback);
+    button1.addCallback(buttonCallback);
+    timer0.addCallback(timer0Callback);
     timer1.addCallback(timer1Callback);
 
-	button1.enableInterrupt();
-	watchdog::init(watchdog::Timeout::Timeout1024ms);
-	watchdog::enableSystemReset();
+    button1.enableInterrupt();
+    watchdog::init(watchdog::Timeout::Timeout1024ms);
+    watchdog::enableSystemReset();
 }
 
 } // namespace
@@ -90,8 +90,8 @@ int main(void)
 
     while (1) 
     {
-	    watchdog::reset();
+        watchdog::reset();
     }
-	return 0;
+    return 0;
 }
 

@@ -24,28 +24,28 @@ inline void clearWatchdogResetFlag(void) { utils::clear(MCUSR, WDRF); }
 void init(const enum Timeout timeout) 
 {
     utils::globalInterruptDisable();
-	utils::set(WDTCSR, WDCE, WDE);
-	WDTCSR = static_cast<uint8_t>(timeout);
-	utils::globalInterruptEnable();
+    utils::set(WDTCSR, WDCE, WDE);
+    WDTCSR = static_cast<uint8_t>(timeout);
+    utils::globalInterruptEnable();
 }
 
 // -----------------------------------------------------------------------------
 void reset(void) 
 {
     utils::globalInterruptDisable();
-	resetWatchdogInHardware();
-	clearWatchdogResetFlag();
-	utils::globalInterruptEnable();
+    resetWatchdogInHardware();
+    clearWatchdogResetFlag();
+    utils::globalInterruptEnable();
 }
 
 // -----------------------------------------------------------------------------
 void enableSystemReset(void) 
 {
     reset();
-	utils::globalInterruptDisable();
-	utils::set(WDTCSR, WDCE, WDE);
-	utils::set(WDTCSR, WDE);
-	utils::globalInterruptEnable();
+    utils::globalInterruptDisable();
+    utils::set(WDTCSR, WDCE, WDE);
+    utils::set(WDTCSR, WDE);
+    utils::globalInterruptEnable();
 }
 
 // -----------------------------------------------------------------------------

@@ -17,7 +17,7 @@ namespace type_traits
 template <typename T>
 struct is_unsigned 
 {
-	static const bool value{false};
+    static const bool value{false};
 };
 
 /********************************************************************************
@@ -26,7 +26,7 @@ struct is_unsigned
 template <>
 struct is_unsigned<uint8_t> 
 {
-	static const bool value{true};
+    static const bool value{true};
 };
 
 /********************************************************************************
@@ -35,7 +35,7 @@ struct is_unsigned<uint8_t>
 template <>
 struct is_unsigned<uint16_t> 
 {
-	static const bool value{true};
+    static const bool value{true};
 };
 
 /********************************************************************************
@@ -44,7 +44,7 @@ struct is_unsigned<uint16_t>
 template <>
 struct is_unsigned<uint32_t> 
 {
-	static const bool value{true};
+    static const bool value{true};
 };
 
 /********************************************************************************
@@ -53,7 +53,7 @@ struct is_unsigned<uint32_t>
 template <>
 struct is_unsigned<uint64_t> 
 {
-	static const bool value{true};
+    static const bool value{true};
 };
 
 /********************************************************************************
@@ -65,7 +65,7 @@ struct is_unsigned<uint64_t>
 template <typename T>
 struct is_signed 
 {
-	static const bool value{false};
+    static const bool value{false};
 };
 
 /********************************************************************************
@@ -74,7 +74,7 @@ struct is_signed
 template <>
 struct is_signed<int8_t> 
 {
-	static const bool value{true};
+    static const bool value{true};
 };
 
 /********************************************************************************
@@ -83,7 +83,7 @@ struct is_signed<int8_t>
 template <>
 struct is_signed<int16_t> 
 {
-	static const bool value{true};
+    static const bool value{true};
 };
 
 /********************************************************************************
@@ -92,7 +92,7 @@ struct is_signed<int16_t>
 template <>
 struct is_signed<int32_t> 
 {
-	static const bool value{true};
+    static const bool value{true};
 };
 
 /********************************************************************************
@@ -101,7 +101,7 @@ struct is_signed<int32_t>
 template <>
 struct is_signed<int64_t> 
 {
-	static const bool value{true};
+    static const bool value{true};
 };
 
 /********************************************************************************
@@ -126,7 +126,7 @@ struct is_integral
 template <typename T>
 struct is_floating_point 
 {
-	static const bool value{false};
+    static const bool value{false};
 };
 
 /********************************************************************************
@@ -144,7 +144,7 @@ struct is_floating_point<float>
 template <>
 struct is_floating_point<double> 
 {
-	static const bool value{true};
+    static const bool value{true};
 };
 
 /********************************************************************************

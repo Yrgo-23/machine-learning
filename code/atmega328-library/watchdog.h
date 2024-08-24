@@ -15,15 +15,15 @@ namespace watchdog
 enum class Timeout 
 {
     Timeout16ms = 0,                                         // 16 ms
-	Timeout32ms = (1 << WDP0),                               // 32 ms
-	Timeout64ms = (1 << WDP1),                               // 64 ms
-	Timeout128ms = (1 << WDP1) | (1 << WDP0),                // 128 ms
-	Timeout256ms = (1 << WDP2),                              // 256 ms
-	Timeout512ms = (1 << WDP2) | (1 << WDP0),                // 512 ms
-	Timeout1024ms = (1 << WDP2) | (1 << WDP1),               // 1024 ms
-	Timeout2048ms = (1 << WDP2) | (1 << WDP1) | (1 << WDP0), // 2048 ms
-	Timeout4096ms = (1 << WDP3),                             // 4096 ms
-	Timeout8192ms = (1 << WDP3) | (1 << WDP0)                // 8192 ms
+    Timeout32ms = (1 << WDP0),                               // 32 ms
+    Timeout64ms = (1 << WDP1),                               // 64 ms
+    Timeout128ms = (1 << WDP1) | (1 << WDP0),                // 128 ms
+    Timeout256ms = (1 << WDP2),                              // 256 ms
+    Timeout512ms = (1 << WDP2) | (1 << WDP0),                // 512 ms
+    Timeout1024ms = (1 << WDP2) | (1 << WDP1),               // 1024 ms
+    Timeout2048ms = (1 << WDP2) | (1 << WDP1) | (1 << WDP0), // 2048 ms
+    Timeout4096ms = (1 << WDP3),                             // 4096 ms
+    Timeout8192ms = (1 << WDP3) | (1 << WDP0)                // 8192 ms
 };
 
 /********************************************************************************
