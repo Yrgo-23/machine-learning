@@ -3,6 +3,9 @@
 !*.*
 !*/
 
+# Don't ignore makefiles:
+!makefile
+
 # Ignore .txt files:
 *.txt
 
