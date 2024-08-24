@@ -1,5 +1,5 @@
 /********************************************************************************
- * @brief Implementation details for the container::Vector class.
+ * @brief Implementation details of the container::Vector class.
  * 
  * @note Don't include this file directly.
  ********************************************************************************/

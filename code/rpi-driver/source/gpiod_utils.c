@@ -1,9 +1,15 @@
+/********************************************************************************
+ * @brief Implementation details of the Linux GPIO driver utility functions.
+ ********************************************************************************/
+#include <gpiod.h>
 #include <unistd.h>
 
 #include "gpiod_utils.h"
 
+// -----------------------------------------------------------------------------
+static void delay_ms(const uint16_t delay_time_ms) { usleep(delay_time_ms * 1000); }
+
 #ifdef __cplusplus
-namespace yrgo {
 namespace rpi {
 #endif
 
@@ -42,7 +48,7 @@ bool gpiod_line_event_detected(struct gpiod_line* self,
                                const enum gpiod_line_edge edge, 
                                bool* previous_input) 
 {
-    delay_ms(50);
+    delay_ms(50U);
     const bool old_val = *previous_input;
     const bool new_val = (bool)(gpiod_line_get_value(self));
     *previous_input = new_val;
@@ -60,10 +66,6 @@ bool gpiod_line_event_detected(struct gpiod_line* self,
     else { return true; }
 }
 
-// -----------------------------------------------------------------------------
-void delay_ms(const uint16_t delay_time_ms) { usleep(delay_time_ms * 1000); }
-
 #ifdef __cplusplus
 } // namespace rpi
-} // namespace yrgo
 #endif

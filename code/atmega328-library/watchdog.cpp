@@ -1,5 +1,5 @@
 /********************************************************************************
- * @brief Implementation details for the ATmega328P watchdog timer driver.
+ * @brief Implementation details of the ATmega328P watchdog timer driver.
  ********************************************************************************/
 #include "watchdog.h"
 

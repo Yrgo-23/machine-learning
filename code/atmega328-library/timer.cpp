@@ -1,5 +1,5 @@
 /********************************************************************************
- * @brief Implementation details for the hardware timer driver.
+ * @brief Implementation details of the hardware timer driver.
  ********************************************************************************/
 #include "array.h"
 #include "callback_array.h"

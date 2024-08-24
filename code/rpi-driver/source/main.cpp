@@ -1,10 +1,11 @@
+/********************************************************************************
+ * @brief Example program demonstrating the Raspberry Pi GPIO drivers.
+ ********************************************************************************/
 #include "button.h"
 #include "led.h"
 
-namespace rpi = yrgo::rpi;
-
 /********************************************************************************
- * @brief Toggles a LED connected to pin 17 at pressdown of a button connected
+ * @brief Toggles a LED connected to pin 17 at press of a button connected
  *        to pin 27.
  ********************************************************************************/
 int main()

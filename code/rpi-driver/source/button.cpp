@@ -1,10 +1,14 @@
+/********************************************************************************
+ * @brief Implementation details of the Raspberry Pi button driver.
+ ********************************************************************************/
+#include <gpiod.h>
+
 #include "gpiod_utils.h"
 #include "button.h"
 
-namespace yrgo 
-{
 namespace rpi
 {
+    
 // -----------------------------------------------------------------------------
 Button::Button(const std::uint8_t pin, const bool activeHigh)
     : myLine{gpiod_line_new(pin, GPIOD_LINE_DIRECTION_IN)}
@@ -32,4 +36,3 @@ bool Button::isEventDetected(const Edge edge)
 }
 
 } // namespace rpi
-} // namespace yrgo

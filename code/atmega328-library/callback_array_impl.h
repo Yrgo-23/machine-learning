@@ -1,5 +1,5 @@
 /********************************************************************************
- * @brief Implementation details for the container::ContainerArray class.
+ * @brief Implementation details of the container::ContainerArray class.
  * 
  * @note Don't include this file directly.
  ********************************************************************************/

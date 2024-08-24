@@ -1,5 +1,5 @@
 /********************************************************************************
- * @brief Implementation details for the ATmega328P ADC driver.
+ * @brief Implementation details of the ATmega328P ADC driver.
  ********************************************************************************/
 #include "adc.h"
 #include "type_traits.h"

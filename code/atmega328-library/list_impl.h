@@ -1,5 +1,5 @@
 /********************************************************************************
- * @brief Implementation details for the container::List class.
+ * @brief Implementation details of the container::List class.
  * 
  * @note Don't include this file directly.
  ********************************************************************************/

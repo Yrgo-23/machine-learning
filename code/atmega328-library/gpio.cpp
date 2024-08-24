@@ -1,5 +1,5 @@
 /********************************************************************************
- * @brief Implementation details for the GPIO device driver.
+ * @brief Implementation details of the GPIO device driver.
  ********************************************************************************/
 #include "callback_array.h"
 #include "gpio.h"
