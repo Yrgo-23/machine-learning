@@ -8,7 +8,7 @@
 ## Mål med lektionen
 * Kunna implementera funktionstemplates i C++.
 * Kunna använda *type traits* för att sätta *constraints* gällande vilka datatyper som är giltiga för en given funktion (och generera ett kompileringsfel med tillhörande felmeddelande om en icke tillåten datatyp används).
-* Ha genomfört och lämnat in inlämningsuppgift 1 (innan kl. 16:00).
+* Ha genomfört och lämnat in inlämningsuppgift 1 (innan dagen är slut).
 
 ## Instruktioner
 * Läs om funktionstemplates i detta dokument, alternativt kolla min [video tutorial](https://www.youtube.com/watch?v=mbRiN_QmjUY).  
