@@ -18,7 +18,6 @@
 ## Nästa lektion
 * Vad är maskininlärning?
 * Linjär regression – träning för hand, prediktion, epoker, lärhastighet med mera.
-* Om tid finns, påbörjade av regressionsmodell i C++.
 
 ## Komposition i C++
 

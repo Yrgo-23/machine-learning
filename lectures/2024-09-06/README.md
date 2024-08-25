@@ -17,7 +17,7 @@
 * Några synpunkter på lektionen i sig?
 
 ## Nästa lektion
-* Slutförande och testning av linjär regressionsmodell i C++.
+* Vidareutveckling av linjär regressionsmodell i C++.
 
 ## Arkitektur för linjär regressionsmodell i C++
 Vi ska denna under föreläsning påbörja implementeringen av en linjär regressionsmodell. Detta kan göras på många olika sätt. Ni har nog olika idéer på hur denna modell ska fungera, vilka metoder vi ska skapa och så vidare. Detta är helt normalt och är också normalt att diskutera utvecklare sinsemellan (samt ibland chefer) när en ny implementering ska göras. Utvecklarna (samt de potentiella cheferna) kan sedan komma överens om det nya interfacets design och funktion, för att sedan påbörja implementeringen. Notera att det framförallt gäller de publika delarna; implementeringsdetaljer (hur man gör det) finns det ofta mindre synpunkter på, så länge det fungerar korrekt.

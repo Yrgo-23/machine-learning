@@ -3,7 +3,6 @@
 ## Dagordning
 * Vad är maskininlärning?
 * Linjär regression – träning för hand, prediktion, epoker, lärhastighet med mera.
-* Om tid finns, påbörjade av regressionsmodell i C++.
 
 ## Mål med lektionen
 * Känna till varför ett traditionellt program inte lämpar sig väl för att efterlikna mänsklig intelligens.
