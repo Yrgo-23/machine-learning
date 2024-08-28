@@ -1,5 +1,5 @@
 /*******************************************************************************
- * @brief Software implementation of people in software. 
+ * @brief Software implementation of people.
  ******************************************************************************/
 #pragma once
 

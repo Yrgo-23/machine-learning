@@ -67,3 +67,5 @@ Vid behov, definiera ytterligare metoder. Sätt dessa till privata i klassen om 
 ### Uppgift 9
 Skapa enheten *device1* så som visas ovan. 
 Skriv ut lagrad enhetsdata i terminalen samt till en fil döpt *device.txt.*
+
+Se lösningsförslag i underkatalogen `solution`.
