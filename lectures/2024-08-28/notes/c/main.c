@@ -40,8 +40,6 @@ int main(void)
         int_vector_push_back(&v1, i);
     }
 
-    v1.size = 1;
-
     for (int i = 0; i < v1.size; ++i)
     {
         printf("%d\n", v1.data[i]);
