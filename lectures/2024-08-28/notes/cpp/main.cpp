@@ -1,64 +1,30 @@
-#include <iostream>
-#include <cstdlib>
+/*******************************************************************************
+ * @brief Demonstration of simple vector implementation in C++.
+ ******************************************************************************/
+#include <fstream>
 
-template <typename T>
-class vector
-{
-public:
-    std::size_t size() const { return mySize; }
+#include "vector.h"
 
-    vector()
-    {
-        std::cout << "Created vector!\n";
-    }
-
-    template <typename... Values>
-    vector(const Values&... values)
-    {
-        for (const auto& i : {values...})
-        {
-            push_back(i);
-        }
-    }
-
-    ~vector() { clear(); }
-
-    bool push_back(const T& value)
-    {
-        T* copy = (T*)realloc(myData, sizeof(T) * (mySize + 1));
-        if (!copy) { return false; }
-        copy[mySize++] = value;
-        myData = copy;
-        return true;
-    }
-
-    void print(std::ostream& ostream = std::cout) const
-    {
-        ostream << "[";
-        for (std::size_t i{}; i < mySize; ++i)
-        {
-            ostream << myData[i];
-            if (i != mySize - 1U) { ostream << ", "; }
-        }
-        ostream << "]\n";
-    }
-
-    void clear()
-    {
-        std::cout << "Vector cleared!\n";
-        free(myData);
-        myData = nullptr;
-        mySize = 0;
-    }
-
-private:
-    T* myData{nullptr};
-    size_t mySize{};
-};
-
+/*******************************************************************************
+ * @brief Creates vectors of different data types and prints the content
+ *        in the terminal and to a file named "data.txt".
+ * 
+ * @tparam Success code 0 upon termination of the program.
+ ******************************************************************************/
 int main()
 {
-    vector<int> v1{1, 2, 3, 4, 5};
+    std::ofstream ostream{"data.txt"};
+    const yrgo::vector<int> v1{1, 2, 3, 4, 5};
     v1.print();
+    v1.print(ostream);
+    
+    yrgo::vector<double> v2{};
+    for (double i{}; i < 5.0; i += 0.5) { v2.push_back(i); }
+    v2.print();
+    v2.print(ostream);
+
+    yrgo::vector<const char*> v3{"Hi there", "how are you?"};
+    v3.print();
+    v3.print(ostream);
     return 0;
 }
