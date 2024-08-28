@@ -3,7 +3,7 @@ all: build run
 
 # Builds the application.
 build:
-	@g++ main.cpp -o main
+	@g++ main.cpp -o main -Wall -Werror
 
 # Runs the application.
 run:
