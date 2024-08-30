@@ -23,7 +23,7 @@ public:
     Led() = delete;
 
     /********************************************************************************
-     * @brief Creates new button connected to specified GPIO pin.
+     * @brief Creates new LED connected to specified GPIO pin.
      * 
      * @param pin        Raspberry Pi GPIO pin the LED is connected to.
      * @param startValue Initial value of the LED (default = off).
