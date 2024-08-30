@@ -4,6 +4,7 @@
 #pragma once
 
 #include <iostream>
+#include <type_traits>
 #include <vector>
 
 #include "person.h"
@@ -25,6 +26,16 @@ public:
      * @param persons Reference to vector holding persons to add to the register.
      ******************************************************************************/
     PersonRegister(const std::vector<Person*>& persons);
+
+    /*******************************************************************************
+     * @brief Creates person register holding specified person data.
+     *
+     * @tparam Persons Parameter pack containing persons.
+     * 
+     * @param persons Persons to add to the register.
+     ******************************************************************************/
+    template <typename... Persons>
+    PersonRegister(const Persons&... persons);
     
     /*******************************************************************************
      * @brief Provides persons stored in the register.
@@ -91,6 +102,18 @@ public:
     std::size_t addPersons(const std::vector<Person*>& persons);
 
     /*******************************************************************************
+     * @brief Adds new persons to the register.
+     *
+     * @tparam Persons Parameter pack containing persons.
+     * 
+     * @param persons Persons to add to the register.
+     * 
+     * @return The number of persons added to the register.
+     ******************************************************************************/
+    template <typename... Persons>
+    std::size_t addPersons(const Persons&... persons);
+
+    /*******************************************************************************
      * @brief Removes person from the register.
      *
      * @param name Name of the person to remove.
@@ -109,3 +132,29 @@ public:
 private:
     std::vector<Person> myPersons; // Vector holding persons in the register.
 };
+
+/*******************************************************************************
+ * @brief Implementation of variadic template constructor.
+ ******************************************************************************/
+template <typename... Persons>
+PersonRegister::PersonRegister(const Persons&... persons)
+    : myPersons{}
+{
+    addPersons(persons...);
+}
+
+ /*******************************************************************************
+ * @brief Implementation of overloaded method addPersons with variadic template.
+ ******************************************************************************/
+template <typename... Persons>
+std::size_t PersonRegister::addPersons(const Persons&... persons)
+{
+    const auto previousPersonCount{personCount()};
+    for (const auto& person : {persons...})
+    {
+        static_assert(std::is_same<decltype(person), const Person&>::value,
+            "Cannot add non-person objects to the person register!");
+        addPerson(person);
+    }
+    return personCount() - previousPersonCount;
+}

@@ -50,7 +50,7 @@ bool PersonRegister::addPerson(const Person& person)
 // -----------------------------------------------------------------------------
 std::size_t PersonRegister::addPersons(const std::vector<Person*>& persons)
 {
-    auto previousPersonCount{personCount()};
+    const auto previousPersonCount{personCount()};
     for (const auto& person : persons)
     {
         if (person != nullptr) { addPerson(*person); }
