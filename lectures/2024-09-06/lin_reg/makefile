@@ -1,6 +1,4 @@
-################################################################################
-# @brief Parameter referring to all source files.
-################################################################################
+# Parameter referring to all source files.
 SOURCE_FILES := source/lin_reg.cpp \
                 source/main.cpp
 
