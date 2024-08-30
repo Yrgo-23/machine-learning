@@ -1,30 +1,20 @@
-################################################################################
-# @brief Implements parameter for referring to source files.
-################################################################################
+# Implements parameter for referring to all source files.
 SOURCE_FILES := source/button.cpp \
                 source/gpiod_utils.c \
 			    source/led.cpp \
 			    source/main.cpp
 
-################################################################################
-# @brief Builds the project and runs the program as default.
-################################################################################
+# Builds and runs the application as default.
 default: build run
 
-################################################################################
-# @brief Builds the project and creates an executable called main.
-################################################################################
+# Builds application.
 build:
 	@g++ $(SOURCE_FILES) -o main -Wall -Werror -I include -lgpiod
 
-################################################################################
-# @brief Runs the program (by running the main executable).
-################################################################################
+# @brief Runs the program application.
 run:
 	@./main
 
-################################################################################
-# @brief Removes compiled files (by deleting the main executable).
-################################################################################
+# @brief Removes the executable.
 clean:
 	@rm -f main

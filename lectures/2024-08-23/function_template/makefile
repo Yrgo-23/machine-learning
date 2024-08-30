@@ -1,22 +1,14 @@
-################################################################################
-# @brief Builds the project and runs the program as default.
-################################################################################
+# Builds and runs the application as default.
 default: build run
 
-################################################################################
-# @brief Builds the project and creates an executable called main.
-################################################################################
+# Builds the application.
 build:
 	@g++ main.cpp -o main -Wall -Werror
 
-################################################################################
-# @brief Runs the program (by running the main executable)
-################################################################################
+# Runs the application.
 run:
 	@./main
 	
-################################################################################
-# @brief Removes compiled files (by deleting the main executable).
-################################################################################
+# Cleans the application.
 clean:
 	@rm -f main

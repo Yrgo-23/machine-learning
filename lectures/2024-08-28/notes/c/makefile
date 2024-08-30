@@ -9,6 +9,6 @@ build:
 run:
 	@./main
 
-# Removes compiled files.
+# Cleans the application.
 clean:
 	@rm -f main
