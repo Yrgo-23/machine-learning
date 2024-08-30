@@ -8,7 +8,7 @@
 
 ## Instruktioner
 * Implementationsdetaljer för `LinReg`-klassen sätter vi ihop tillsammans under föreläsningen.
-* Se det publikt interfacet för klassen `LinReg` i katalogen `lin_reg`.
+* Se det publika interfacet för klassen `LinReg` i katalogen `lin_reg`.
 
 ## Utvärdering
 * Några synpunkter på lektionen i sig?
