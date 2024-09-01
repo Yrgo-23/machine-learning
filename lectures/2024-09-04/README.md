@@ -15,6 +15,7 @@
 
 ## Utvärdering
 * Några synpunkter på lektionen i sig?
+* Genomför gärna övningsuppgiften i underkatalogen `exercises`. Lösningsförslag är bifogat.
 
 ## Nästa lektion
 * Linjär regression i mjukvara (del I).
