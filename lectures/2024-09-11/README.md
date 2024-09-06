@@ -8,7 +8,9 @@
 
 ## Instruktioner
 * Implementationsdetaljer för `LinReg`-klassen sätter vi ihop tillsammans under föreläsningen.
-* Se det publika interfacet för klassen `LinReg` i katalogen `lin_reg`.
+* I katalogen `lin_reg` finns:
+  * Ett förslag på ett publikt interface för klassen `LinReg` i C++.
+  * En linjär regressionsmodell implementerad via en klass döpt `LinReg` i Python.
 
 ## Utvärdering
 * Några synpunkter på lektionen i sig?
@@ -16,4 +18,3 @@
 ## Nästa lektion
 * Slutförande av linjär regressionsmodell i C++.
 * Inlämningsuppgift 4 - Linjära regressionsmodeller.
-
