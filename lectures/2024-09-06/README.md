@@ -15,6 +15,7 @@
 
 ## Utvärdering
 * Några synpunkter på lektionen i sig?
+* Katalogen `notes` innehåller det publika interface som sattes ihop under föreläsningen.
 
 ## Nästa lektion
 * Vidareutveckling av linjär regressionsmodell i C++.
