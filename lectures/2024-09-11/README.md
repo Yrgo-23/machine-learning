@@ -8,9 +8,8 @@
 
 ## Instruktioner
 * Implementationsdetaljer för `LinReg`-klassen sätter vi ihop tillsammans under föreläsningen.
-* I katalogen `lin_reg` finns:
-  * Ett förslag på ett publikt interface för klassen `LinReg` i C++.
-  * En linjär regressionsmodell implementerad via en klass döpt `LinReg` i Python.
+* I katalogen `lin_reg` finns det interface som togs fram föregående lektion.  
+* För inspiration finns en linjär regressionsmodell implementerad i Python [här](../../code/lin_reg/python/).
 
 ## Utvärdering
 * Några synpunkter på lektionen i sig?

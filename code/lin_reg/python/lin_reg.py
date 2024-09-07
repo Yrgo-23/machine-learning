@@ -115,8 +115,8 @@ class LinReg:
     
     def _check_training_sets(self) -> None:
         """Ensures that the size of the training sets match"""
-        num_sets = _min(len(self._training_input), len(self._training_output))
-        self._training_input = self._training_input[:num_sets]
+        num_sets              = _min(len(self._training_input), len(self._training_output))
+        self._training_input  = self._training_input[:num_sets]
         self._training_output = self._training_output[:num_sets]
 
     def _init_training_order(self) -> None:
@@ -127,8 +127,8 @@ class LinReg:
     def _randomize_training_order(self) -> None:
         """Randomizes training order."""
         for i in range(self.set_count()):
-            r = random.randint(0, self.set_count() - 1)
-            temp = self._training_order[i]
+            r                       = random.randint(0, self.set_count() - 1)
+            temp                    = self._training_order[i]
             self._training_order[i] = self._training_order[r]
             self._training_order[r] = temp
 
@@ -142,8 +142,8 @@ class LinReg:
         if input == 0:
             self._bias = reference
         else:
-            error = reference - self.predict(input)
-            self._bias += error * learning_rate
+            error        = reference - self.predict(input)
+            self._bias   += error * learning_rate
             self._weight += error * learning_rate * input
 
     @staticmethod
