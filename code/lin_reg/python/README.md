@@ -5,7 +5,7 @@ Fullständig implementering av linjär regressionsmodell i mjukvara:
 * Filen `main.py` innehåller testkod, där en regressionsmodell tränas till att detektera mönstret y = 2x + 2.  
 Träning genomförs tills modellens precision överstiger 99,9 %, därefter skrivs resultatet ut.
 
-## Körsning av programmet
+## Körning av programmet
 
 Kör programmet genom att använda `main.py` som startskript:
 

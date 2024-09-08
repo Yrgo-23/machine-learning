@@ -1,15 +1,9 @@
+from typing import Union
+
 """
 Linear regression implementation.
 """
 import random
-
-def _min(x: int | float, y: int | float) -> int | float:
-    """Provides the minimum of two arithmetic values.
-    
-    :param x: The first value.
-    :param y: The second value.
-    """
-    return x if x <= y else y
 
 class LinReg:
     """Class implementation of linear regression model."""
@@ -21,13 +15,15 @@ class LinReg:
         :param training_output: List holding training output.
 
         """
+        if len(training_input) != len(training_output):
+            raise ValueError(f"Non-matching training sets!")
+        if len(training_input) == 0:
+            raise ValueError(f"Empty training sets!")
         self._training_input  = training_input
         self._training_output = training_output
-        self._training_order  = []
-        self._bias            = self._random_start_val()
-        self._weight          = self._random_start_val()
-        self._check_training_sets()
-        self._init_training_order()
+        self._training_order  = list(range(len(self._training_input)))
+        self._bias            = random.random()
+        self._weight          = random.random()
 
     def training_input(self) -> tuple[float]:
         """Provides training input.
@@ -57,7 +53,7 @@ class LinReg:
         """
         return self._weight
     
-    def set_count(self) -> int:
+    def training_size(self) -> int:
         """Provides the number of stored training sets.
         
         :return: The number of stored sets as an integer.
@@ -81,10 +77,12 @@ class LinReg:
 
         :return: The model's accuracy post training as a floating point number between 0 - 1.
         """
-        if self.set_count() == 0 or epoch_count <= 0 or learning_rate <= 0:
-            return False
+        if epoch_count <= 0:
+            raise ValueError(f"Invalid epoch count {epoch_count}!")
+        if learning_rate <= 0:
+            raise ValueError(f"Invalid learning rate {learning_rate}!")
         for _ in range(epoch_count):
-            self._randomize_training_order()
+            random.shuffle(self._training_order)
             for index in self._training_order:
                 self._optimize(self._training_input[index], self._training_output[index], learning_rate)
         return self.accuracy()
@@ -94,45 +92,26 @@ class LinReg:
         
         :return: The accuracy as a floating point number between 0 - 1.
         """
-        if self.set_count() == 0:
+        if self.training_size() == 0:
             return 0
         error = 0
-        for i in range(self.set_count()):
+        for i in range(self.training_size()):
             error += abs(self._training_output[i] - self.predict(self._training_input[i]))
-        return 1 - error / self.set_count()
+        return 1 - error / self.training_size()
     
     def print_results(self) -> None:
         """Prints post training results."""
-        print_set = lambda x, y: print(
+        print_formatted_result = lambda x, y: print(
             f"Input: {x:.1f}    "
             f" reference: {y:.1f} \t\t" 
             f"prediction: {self.predict(x):.1f} \t"
             f"error: {y - self.predict(x):.1f}")
         print("--------------------------------------------------------------------------------")
-        for i in range(self.set_count()):
-            print_set(self._training_input[i], self._training_output[i])
+        for i in range(self.training_size()):
+            print_formatted_result(self._training_input[i], self._training_output[i])
         print("--------------------------------------------------------------------------------\n")
-    
-    def _check_training_sets(self) -> None:
-        """Ensures that the size of the training sets match"""
-        num_sets              = _min(len(self._training_input), len(self._training_output))
-        self._training_input  = self._training_input[:num_sets]
-        self._training_output = self._training_output[:num_sets]
 
-    def _init_training_order(self) -> None:
-        """Init list holding training order index."""
-        for i in range(len(self._training_input)):
-            self._training_order.append(i)
-
-    def _randomize_training_order(self) -> None:
-        """Randomizes training order."""
-        for i in range(self.set_count()):
-            r                       = random.randint(0, self.set_count() - 1)
-            temp                    = self._training_order[i]
-            self._training_order[i] = self._training_order[r]
-            self._training_order[r] = temp
-
-    def _optimize(self, input, reference, learning_rate) -> None:
+    def _optimize(self, input: float, reference: float, learning_rate: float) -> None:
         """Optimizes the model by adjusting the parameters.
         
         :param input: The model's input value.
@@ -145,12 +124,3 @@ class LinReg:
             error        = reference - self.predict(input)
             self._bias   += error * learning_rate
             self._weight += error * learning_rate * input
-
-    @staticmethod
-    def _random_start_val() -> float:
-        """
-        Provides random number between 0 and 1.
-
-        :return: A random floating point number between 0 and 1.
-        """
-        return random.random()
