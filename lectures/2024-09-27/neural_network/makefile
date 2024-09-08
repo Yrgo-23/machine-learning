@@ -1,9 +1,12 @@
+# Source files used in the application.
+SRC_FILES := main.cpp
+
 # Builds and runs the application as default.
-all: build runs
+all: build run
 
 # Builds the application.
 build:
-	@g++ <INPUT-FILES> -o app -Wall -Werror -std=c++17
+	@g++ $(SRC_FILES) -o app -Wall -Werror -std=c++17
 
 # Runs the application.
 run:

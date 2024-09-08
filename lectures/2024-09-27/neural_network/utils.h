@@ -191,41 +191,44 @@ template <typename T = std::int32_t>
 constexpr T round(const double number);
 
 /*******************************************************************************
- * @brief Provides the hyperbolic tangent of specified angle.
+ * @brief Provides the Rectified Linear Unit (ReLU) activation for a 
+ *        given input.
  * 
- * @param v The angle to calculate the hyperbolic tangent with.
+ * @param number The number for which to calculate the Relu.
  * 
- * @return The hyperbolic tangent of specified angle.
+ * @return The ReLU activation as a float.
  ******************************************************************************/
-constexpr double tanh(const double v);
+constexpr double relu(const double number);
 
 /*******************************************************************************
- * @brief Provides the derivate of the hyperbolic tangent of specified angle.
+ * @brief Provides the gradient of the Rectified Linear Unit (ReLU) function 
+ *        for a given input.
  * 
- * @param v The angle to calculate the derivate of the hyperbolic tangent with.
+ * @param number The number for which to calculate the ReLU gradient.
  * 
- * @return The derivate of the hyperbolic tangent of specified angle.
+ * @return The ReLU gradient as a float.
  ******************************************************************************/
-constexpr double tanhDelta(const double x);
+constexpr double reluGradient(const double number);
 
 /*******************************************************************************
- * @brief Provides the ReLU (Rectified Linear Unit) output of specified value.
+ * @brief Provides the hyperbolic tangent (tanh) for a given input.
  * 
- * @param x The value to calculate the ReLU output with.
+ * @param number The number for which to calculate the hyperbolic tangent.
  * 
- * @return The ReLU output, i.e. x if x > 0, else 0.
+ * @return The hyperbolic tangent as a float.
  ******************************************************************************/
-constexpr double relu(const double x);
+constexpr double tanh(const double number);
 
 /*******************************************************************************
- * @brief Provides the derivate of the ReLU (Rectified Linear Unit) output of 
- *        specified value.
+ * @brief Provides the gradient of the hyperbolic tangent (tanh) for a 
+ *        given input.
  * 
- * @param x The value to calculate the derivate of the ReLU output with.
+ * @param number The number for which to calculate the gradient of the 
+ *               hyperbolic tangent.
  * 
- * @return The derivate of the ReLU output, i.e. 1 if x > 0, else 0.
+ * @return The gradient of the hyperbolic tangent as a float.
  ******************************************************************************/
-constexpr double reluDelta(const double x);
+constexpr double tanhGradient(const double number);
 
 } // namespace math
 

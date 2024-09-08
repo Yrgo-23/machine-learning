@@ -39,6 +39,12 @@ T getNumber(const T min, const T max)
     static_assert(std::is_arithmetic<T>::value, 
         "Non-arithmetic type selected for new random number!");
 
+    if (min > max) 
+    { 
+        throw std::invalid_argument(
+            "Cannot generate random number when min is more than max!"); 
+    }
+
     if constexpr (std::is_integral<T>::value) 
     {
         return static_cast<T>((std::rand() % (max + 1 - min)) + min);
@@ -61,6 +67,11 @@ void initRandom(std::vector<T>& vector, const std::size_t size,
 {
     static_assert(std::is_arithmetic<T>::value, 
         "Cannot assign random numbers for non-arithmetic types!");
+    if (size == 0U)
+    {
+        throw std::invalid_argument(
+            "Vector size must exceed 0 for random initialization!");
+    }
     vector.resize(size);
     for (auto& i : vector) { i = random::getNumber<T>(min, max); }
 }
@@ -73,6 +84,12 @@ void initRandom(std::vector<std::vector<T>>& vector,
 {
     static_assert(std::is_arithmetic<T>::value, 
         "Cannot assign random numbers for non-arithmetic types!");
+
+    if ((columnCount == 0U) || (rowCount == 0U))
+    {
+        throw std::invalid_argument(
+            "Vector row and column count must both exceed 0 for random initialization!");
+    }
     vector.resize(columnCount, std::vector<T>(rowCount));
 
     for (auto& i : vector) 
@@ -115,17 +132,24 @@ void print(const std::vector<T>& vector, std::ostream& ostream,
     static_assert(std::is_arithmetic<T>::value || utils::type_traits::is_string<T>::value,
         "Function utils::vector::print only supports arithmetic types and strings!");
 
-    constexpr auto roundNearZeroValue = [](const T value, const double threshold = 0.01)
-    {
-        return (value < threshold) && (value > -threshold) ? 0 : value;
-    };
+    if (std::is_floating_point<T>::value && decimalCount > 0U) 
+    { 
+        ostream << std::fixed << std::setprecision(decimalCount) << "[";
+    }
+    else { ostream << "["; }
 
-    const auto threshold{decimalCount > 0U ? decimalCount : 1U};
-    ostream << std::fixed << std::setprecision(decimalCount) << "[";
+    constexpr auto roundNearZeroValue = [](const T value, const double threshold = 0.001) -> T
+    {
+        if constexpr (std::is_floating_point<T>::value)
+        {
+            return (value < threshold) && (value > -threshold) ? 0.0 : value;
+        }
+        else { return value; }
+    };
 
     for (std::size_t i{}; i < vector.size(); ++i)
     {
-        const auto value{roundNearZeroValue(vector[i], threshold)};
+        const auto value{roundNearZeroValue(vector[i])};
         if (i < vector.size() - 1U) { ostream << value << ", "; }
         else { ostream << value; }
     }
@@ -141,7 +165,8 @@ void print(const std::vector<std::vector<T>>& vector, std::ostream& ostream,
 {
     static_assert(std::is_arithmetic<T>::value || utils::type_traits::is_string<T>::value,
         "Function utils::vector::print only supports arithmetic types and strings!");
-    ostream << std::fixed << std::setprecision(decimalCount) << "[";
+    ostream << "[";
+
     for (std::size_t i{}; i < vector.size(); ++i)
     {
         if (i < vector.size() - 1U) { print<T>(vector[i], ostream, ", ", decimalCount); }
@@ -224,16 +249,16 @@ constexpr T round(const double number)
 }
 
 // -----------------------------------------------------------------------------
-constexpr double tanh(const double v) { return std::tanh(v); }
+constexpr double relu(const double number) { return number > 0 ? number : 0; }
 
 // -----------------------------------------------------------------------------
-constexpr double tanhDelta(const double x) { return 1 - std::pow(std::tanh(x), 2); }
+constexpr double reluGradient(const double number) { return number > 0 ? 1 : 0; }
 
 // -----------------------------------------------------------------------------
-constexpr double relu(const double x) { return x > 0 ? x : 0; }
+constexpr double tanh(const double number) { return std::tanh(number); }
 
 // -----------------------------------------------------------------------------
-constexpr double reluDelta(const double x) { return x > 0 ? 1 : 0; }
+constexpr double tanhGradient(const double number) { return 1 - std::pow(std::tanh(number), 2); }
 
 } // namespace math
 } // namespace
