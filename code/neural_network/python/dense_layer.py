@@ -5,18 +5,18 @@ from ml_utils import ActFunc, Math, Random
 class DenseLayer:
     """Class implementation of dense layers."""
 
-    def __init__(self, nodeCount: int, weightCount: int, actFunc: ActFunc = ActFunc.RELU) -> None:
+    def __init__(self, node_count: int, weight_count: int, act_func: ActFunc = ActFunc.RELU) -> None:
         """Creates new dense layer.
         
-        :param nodeCount: The number of nodes in the new layer.
-        :param weightCount: The number of weights per node in the new layer.
-        :param actFunc: The activation function of the layer (default = ReLU).
+        :param node_count: The number of nodes in the new layer.
+        :param weight_count: The number of weights per node in the new layer.
+        :param act_func: The activation function of the layer (default = ReLU).
         """
-        self._output  = Random.list(nodeCount, 0.0, 0.0)
-        self._error   = Random.list(nodeCount, 0.0, 0.0)
-        self._bias    = Random.list(nodeCount, 0.0, 1.0)
-        self._weights = Random.list_2d(nodeCount, weightCount, 0.0, 1.0)
-        self._actFunc = actFunc
+        self._output   = Random.list(node_count, 0.0, 0.0)
+        self._error    = Random.list(node_count, 0.0, 0.0)
+        self._bias     = Random.list(node_count, 0.0, 1.0)
+        self._weights  = Random.list_2d(node_count, weight_count, 0.0, 1.0)
+        self._act_func = act_func
     
     def output(self) -> tuple[float]:
         """Provides the output of the dense layer.
@@ -46,12 +46,12 @@ class DenseLayer:
         """
         return tuple(map(tuple, self._weights))
     
-    def actFunc(self) -> ActFunc:
+    def act_func(self) -> ActFunc:
         """Provides the activation function of the dense layer.
         
         :return: The activation function as an enumerator of enum ActFunc.
         """
-        return self._actFunc
+        return self._act_func
     
     def node_count(self) -> int:
         """Provides the number of nodes in the dense layer.
@@ -79,7 +79,7 @@ class DenseLayer:
             weighted_sum = self._bias[i]
             for j in range(self.weight_count()):
                 weighted_sum += self._weights[i][j] * input[j]
-            self._output[i] = Math.act_func_output(weighted_sum, self._actFunc)
+            self._output[i]  = Math.act_func_output(weighted_sum, self._act_func)
 
     def backpropagate_output(self, reference: list[float]) -> None:
         """Performs backpropagation for output layer.
@@ -93,8 +93,8 @@ class DenseLayer:
             raise ValueError(f"Backpropagation reference size {len(reference)} \
                              does not match the node count {self.node_count()}!")
         for i in range(self.node_count()):
-            error = reference[i] - self._output[i]
-            self._error[i] = error * Math.act_func_gradient(self._output[i], self._actFunc)
+            error          = reference[i] - self._output[i]
+            self._error[i] = error * Math.act_func_gradient(self._output[i], self._act_func)
 
     def backpropagate_hidden(self, next_layer: DenseLayer) -> None:
         """Performs backpropagation for hidden layer.
@@ -110,8 +110,8 @@ class DenseLayer:
         for i in range(self.node_count()):
             error = 0.0
             for j in range(next_layer.node_count()):
-                error += next_layer.error()[j] * next_layer.weights()[j][i]
-            self._error[i] = error * Math.act_func_gradient(self._output[i], self._actFunc)
+                error      += next_layer.error()[j] * next_layer.weights()[j][i]
+            self._error[i] = error * Math.act_func_gradient(self._output[i], self._act_func)
 
     def optimize(self, input: list[float], learning_rate: float = 0.01) -> None:
         """Performs optimization for dense layer.

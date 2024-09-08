@@ -5,9 +5,13 @@ import math
 import random
 
 class ActFunc(Enum):
-    """Activation functions layers in neural networks"""
-    RELU = 0
-    TANH = 1
+    """Activation functions for layers in neural networks
+    
+    :param RELU: Rectified Linear Unit (ReLU).
+    :param TANH: Hyperbolic tangent (tanh).
+    """
+    RELU = 0 
+    TANH = 1 
 
     def __str__(self):
         """Provide the ActFunc enumerator as text.
