@@ -5,7 +5,7 @@ import math
 import random
 
 class ActFunc(Enum):
-    """Activation functions for layers in neural networks
+    """Activation functions for layers in neural networks.
     
     :param RELU: Rectified Linear Unit (ReLU).
     :param TANH: Hyperbolic tangent (tanh).
