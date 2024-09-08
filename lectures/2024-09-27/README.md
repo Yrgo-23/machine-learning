@@ -10,7 +10,7 @@
 
 ## Instruktioner
 * Arkitekturen för `DenseLayer`-klassen sätter vi ihop tillsammans under föreläsningen.
-Se `Arkitektur för dense-lager i C++` nedan för lite bakgrund.
+* Se en Python-implementering av ett litet neuralt nätverk [här](../../code/neural_network/python/) för inspiration, speciellt filen `dense_layer.py`.
 * Implementeringen ska genomföras i katalogen `neural_network`. I denna katalog har ni till ert förfogande en fil döpt `utils.h`, som innehåller diverse hjälpfunktioner.
 
 
