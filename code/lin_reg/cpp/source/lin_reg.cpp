@@ -4,7 +4,6 @@
 #include <cstdlib>
 #include <ctime>
 #include <iomanip>
-#include <type_traits>
 
 #include "lin_reg.h"
 

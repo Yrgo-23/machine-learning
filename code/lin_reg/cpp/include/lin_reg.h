@@ -74,15 +74,35 @@ public:
 
 private:
 
+    /*******************************************************************************
+     * @brief Initializes training order by assigning the index of each training
+     *        set to the training order vector.
+     ******************************************************************************/
     void initTrainingOrder();
+
+    /*******************************************************************************
+     * @brief Randomizes the training order by shuffling the training order vector.
+     ******************************************************************************/
     void randomizeTrainingOrder();
+
+    /*******************************************************************************
+     * @brief Optimizes the model by adjusting the model parameters. The model's
+     *        performance is measured by comparing the predicted value for a given
+     *        input with the corresponding reference value. The parameters are
+     *        adjusted in accordance with the measured error.
+     * 
+     * @param input        The input for which to predict.
+     * @param reference    Output reference, i.e. the value we want the model
+     *                     to predict for given input.
+     * @param learningRate Adjustment rate of the model's parameters.
+     ******************************************************************************/
     void optimize(const double input, const double reference, const double learningRate);
 
-    std::vector<std::size_t> myTrainingOrder;
-    const std::vector<double>& myTrainingInput;
-    const std::vector<double>& myTrainingOutput;
-    double myWeight;
-    double myBias;
+    std::vector<std::size_t> myTrainingOrder;    // Vector holding the training order via index.
+    const std::vector<double>& myTrainingInput;  // Reference to vector holding training input.
+    const std::vector<double>& myTrainingOutput; // Reference to vector holding training output.
+    double myWeight;                             // The weight of the model (k-value).
+    double myBias;                               // The bias of the model (m-value).
 };
 
 } // namespace ml
