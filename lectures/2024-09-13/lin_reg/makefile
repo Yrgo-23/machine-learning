@@ -1,18 +1,24 @@
-# Parameter referring to all source files.
+# Application target.
+TARGET = app
+
+# Source files used in the application.
 SOURCE_FILES := source/lin_reg.cpp \
                 source/main.cpp
+
+# Include directories.
+INCLUDE_DIRS := include
 
 # Builds and runs the application as default.
 default: build run
 
 # Builds the application.
 build:
-	@g++ $(SOURCE_FILES) -o main -I include -Wall -Werror 
+	@g++ $(SOURCE_FILES) -o $(TARGET) -I $(INCLUDE_DIRS) -Wall -Werror 
 
 # Runs the application.
 run:
-	@./main
+	@./$(TARGET)
 
 # Cleans the application.
 clean:
-	@rm -f main
+	@rm -f $(TARGET)

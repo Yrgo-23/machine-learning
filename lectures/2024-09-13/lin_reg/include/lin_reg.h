@@ -51,9 +51,10 @@ public:
      * @param epochCount   The number of epochs to train the model.
      * @param learningRate The learning rate to train with (default = 1 %).
      * 
-     * @return True if the model predicts with an accuracy over 95 % post training.
+     * @return The model's accuracy post training as a float between 0 - 1,
+     *         which corresponds to 0 - 100 %.
      ******************************************************************************/
-    bool train(const std::size_t epochCount, const double learningRate = 0.01);
+    double train(const std::size_t epochCount, const double learningRate = 0.01);
 
     /*******************************************************************************
      * @brief Provides the accuracy of the model based on available training data.
@@ -65,13 +66,18 @@ public:
     /*******************************************************************************
      * @brief Prints the training result.
      * 
-     * @param numDecimals The number of decimals to print with (default = 1).
-     * @param ostream     Reference to output stream (default = terminal print).
+     * @param ostream      Reference to output stream (default = terminal print).
+     * @param decimalCount The number of decimals to print with (default = 1).
      ******************************************************************************/
-    void printTrainingResult(const std::size_t numDecimals = 1U, 
-                             std::ostream& ostream = std::cout) const;
+    void printTrainingResult(std::ostream& ostream = std::cout,
+                             const std::size_t decimalCount = 1U) const;
 
 private:
+
+    void initTrainingOrder();
+    void randomizeTrainingOrder();
+    void optimize(const double input, const double reference, const double learningRate);
+
     std::vector<std::size_t> myTrainingOrder;
     const std::vector<double>& myTrainingInput;
     const std::vector<double>& myTrainingOutput;
