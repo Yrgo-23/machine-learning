@@ -2,7 +2,8 @@
 TARGET := app
 
 # Source files used in the application.
-SRC_FILES := src/main.cpp
+SRC_FILES := src/dense_layer.cpp \
+             src/main.cpp
 
 # Include directories.
 INC_DIRS := inc

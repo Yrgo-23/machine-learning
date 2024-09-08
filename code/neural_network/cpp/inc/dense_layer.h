@@ -1,6 +1,8 @@
 /*******************************************************************************
  * @brief Implementation of dense layers for neural networks.
  ******************************************************************************/
+#pragma once
+
 #include <iostream>
 #include <vector>
 
@@ -22,7 +24,7 @@ enum class ActFunc
 class DenseLayer
 {
 public:
-    DenseLayer() = delete; // Default destructor deleted.
+    DenseLayer() = delete; // Default constructor deleted.
 
     /*******************************************************************************
      * @brief Creates new dense layer.
