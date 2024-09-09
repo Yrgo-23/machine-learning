@@ -59,7 +59,7 @@ class NeuralNetwork:
     def predict(self, input) -> tuple[float]:
         """Performs prediction based on given input.
         
-        :param input: Input on which to predict.
+        :param input: List holding the input on which to predict.
         
         :return: Tuple holding the predicted output.
         """
@@ -87,7 +87,7 @@ class NeuralNetwork:
         :param epoch_count: The number of epochs to perform training.
         :param: learning_rate: The rate with witch to optimize the network parameters (default = 0.01).
 
-        :return: The accuracy post training as a float between 0 - 1 (where 1 corresponds to 100 %).
+        :return: The accuracy post training as a float in the range 0 - 1 , which corresponds to 0 - 100 %.
         """
         if epoch_count <= 0 or learning_rate <= 0:
             raise ValueError(f"Invalid training parameters!")
@@ -102,7 +102,7 @@ class NeuralNetwork:
     def accuracy(self) -> float:
         """Provides the accuracy of the network by using the stored training data.
         
-        :return: The accuracy as a float between 0 - 1, which corresponds to 0 - 100 %.
+        :return: The accuracy as a float in the range 0 - 1, which corresponds to 0 - 100 %.
         """
         if self.training_set_count() == 0:
             return 0.0
@@ -167,7 +167,7 @@ class NeuralNetwork:
         return average(error_list)
     
 def _subtract_lists(lst1: list[float], lst2: list[float]) -> list[float]:
-    """Subtracts the content of two lists and provides the difference in a new list.
+    """Subtracts the content of two lists and provides the difference in another list.
     
     :param lst1: The first list.
     :param lst2: The second list.
