@@ -3,7 +3,7 @@ default: build run
 
 # Builds the application.
 build:
-	@g++ src/lin_reg.cpp src/main.cpp -o lin_reg
+	@g++ src/lin_reg.cpp src/main.cpp -o lin_reg -I inc -Wall -Werror
 
 # Runs the application.
 run:

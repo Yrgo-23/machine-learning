@@ -32,14 +32,14 @@ public:
      * 
      * @return Reference to vector holding training input.
      ******************************************************************************/
-     const std::vector<double>& trainingInput() const;
+    const std::vector<double>& trainingInput() const;
 
     /*******************************************************************************
      * @brief Provides training output.
      * 
      * @return Reference to vector holding training input.
      ******************************************************************************/
-     const std::vector<double>& trainingOutput() const;
+    const std::vector<double>& trainingOutput() const;
 
     /*******************************************************************************
      * @brief Trains regression model.
@@ -48,6 +48,13 @@ public:
      * @param learningRate Learning rate to use (default = 1 %).
      ******************************************************************************/
      void train(const std::size_t epochCount, const double learningRate = 0.01);
+
+    /*******************************************************************************
+     * @brief Performs prediction bases on input.
+     * 
+     * @param input The input for which to predict.
+     ******************************************************************************/
+    double predict(const double input) const;
 
 private:
     std::vector<double> myTrainingInput;  // Training input.
