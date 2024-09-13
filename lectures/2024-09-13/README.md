@@ -15,6 +15,7 @@
 
 ## Utvärdering
 * Några synpunkter på lektionen i sig?
+* Den färdiga regressionsmodellen ligger i katalogen `lin_reg`.
 
 ## Nästa lektion
 * **Projekt 1** - Implementering av linjär regression för prediktion av temperatur på ATmega328P (del I).
