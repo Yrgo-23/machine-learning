@@ -10,9 +10,14 @@
 
 ## Instruktioner
 * Arkitekturen för `DenseLayer`-klassen sätter vi ihop tillsammans under föreläsningen.
-* Se en Python-implementering av ett litet neuralt nätverk [här](../../code/neural_network/python/) för inspiration, speciellt filen `dense_layer.py`.
-* Implementeringen ska genomföras i katalogen `neural_network`. I denna katalog har ni till ert förfogande en fil döpt `utils.h`, som innehåller diverse hjälpfunktioner.
+* Se implementering av små neurala nätverk i Python respektive C++ [här](../../code/neural_network/) för inspiration, speciellt filer[`dense_layer.py`](../../code/neural_network/python/dense_layer.py) samt [`dense_layer.h`](../../code/neural_network/cpp/inc/dense_layer.h).
+* Skapa ett eget repo på GitLab, döp detta till `neural-network` eller liknande. I detta repo ska ni skapa ett eget neuralt nätverk under nästkommande lektioner.
 
+* Ni har lite startfiler i underkatalogen [`neural_network`](./neural_network/), som ni förslagsvis kan kopiera till ert repo. I denna katalog har ni för närvarande:
+    * Filen `utils.h`, som innehåller diverse hjälpfunktioner.
+    * Filen `utils_impl.h` som utgör implementationsdetaljer för `utils.h`. Denna fil behöver ni inte tänka på eller inkludera direkt.
+    * Makefilen `makefile`, som kan användas för att kompilera projektet.
+    * Filen `main.cpp`, som för tillfället enbart används för att testa några av hjälpfunktionerna från `utils.h`.
 
 ## Utvärdering
 * Några synpunkter på lektionen i sig?

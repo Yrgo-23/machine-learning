@@ -182,6 +182,15 @@ namespace math
 {
 
 // -----------------------------------------------------------------------------
+template <typename T>
+constexpr T absoluteValue(const T& number) 
+{ 
+    static_assert(std::is_arithmetic<T>::value, 
+        "Cannot perform mathematical operations with non-arithmetic types!");
+    return number >= 0 ? number : -number; 
+}
+
+// -----------------------------------------------------------------------------
 template <typename T, typename... Numbers>
 constexpr T add(const Numbers&... numbers) {
     static_assert(std::is_arithmetic<T>::value, 
