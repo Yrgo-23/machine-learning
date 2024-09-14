@@ -101,7 +101,7 @@ public:
      * @return The accuracy post training as a float in the range 0 - 1, which
      *         corresponds to 0 - 100 %.
      ******************************************************************************/
-    void train(const std::size_t epochCount, const double learningRate = 0.01);
+    double train(const std::size_t epochCount, const double learningRate = 0.01);
 
     /*******************************************************************************
      * @brief Provides the accuracy of the network by using the stored training data.
@@ -118,10 +118,15 @@ public:
      * @param decimalCount The number of decimals for which to print floats
      *                     (default = 1).
      ******************************************************************************/
-    void print(const std::ostream& ostream = std::cout, 
-               const std::size_t decimalCount = 1U);
+    void printResults(std::ostream& ostream = std::cout, 
+                      const std::size_t decimalCount = 1U);
 
 private:
+
+    /*******************************************************************************
+     * @brief Initializes the training order after adding training sets.
+     ******************************************************************************/
+    void initTrainingOrder();
 
     /*******************************************************************************
      * @brief Randomizes the order of the training sets for next epoch.
@@ -164,9 +169,9 @@ private:
 
     DenseLayer myHiddenLayer;                          // Hidden layer of the neural network.
     DenseLayer myOutputLayer;                          // Output layer of the neural network.
-    std::vector<std::size_t> myTrainingOrder;          // Vector holding the training order via index.
     std::vector<std::vector<double>> myTrainingInput;  // Vector holding training input.
     std::vector<std::vector<double>> myTrainingOutput; // Vector holding training input.
+    std::vector<std::size_t> myTrainingOrder;          // Vector holding the training order via index.
 };
 
 } // namespace ml

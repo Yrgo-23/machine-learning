@@ -3,7 +3,8 @@ TARGET := app
 
 # Source files used in the application.
 SRC_FILES := src/dense_layer.cpp \
-             src/main.cpp
+             src/main.cpp \
+			 src/neural_network.cpp
 
 # Include directories.
 INC_DIRS := inc

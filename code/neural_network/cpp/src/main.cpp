@@ -1,27 +1,39 @@
 /*******************************************************************************
- * @brief Dense layer test.
+ * @brief Demonstration of a simple neural network.
  ******************************************************************************/
 #include <vector>
 
-#include "dense_layer.h"
+#include "neural_network.h"
 
 /*******************************************************************************
- * @brief Tests creating and training a dense layer.
+ * @brief Creates and initializes a small neural network, which is trained to 
+ *        detect a 2-bit XOR pattern. 
+ *  
+ *        The network consists of:
+ * 
+ *        - An input layer with two nodes.
+ * 
+ *        - A hidden layer with three nodes, using the hyperbolic tangent (tanh) 
+ *         as activation function.
+ * 
+ *         - An output layer with one node, using the ReLU (Rectified Linear Unit) 
+ *           as activation function.
+ *   
+ *         Training is performed until the network's accuracy exceeds 99,99 %.
+ *   
+ *         The results post training are printed in the terminal upon completion.
  * 
  * @return Success code 0 upon termination of the program.
  ******************************************************************************/
 int main()
 {
-    const std::vector<double> input{0, 0, 0};
-    const std::vector<double> output{1};
-    ml::DenseLayer denseLayer{1, 3};
+    const std::vector<std::vector<double>> trainingInput{{0, 0}, {0, 1}, 
+                                                         {1, 0}, {1, 1}};
+    const std::vector<std::vector<double>> trainingOutput{{0}, {1}, {1}, {0}};
+    ml::NeuralNetwork network{2, 3, 1, ml::ActFunc::Tanh};
 
-    for (std::size_t i{}; i < 1001U; ++i)
-    {
-        denseLayer.feedforward(input);
-        denseLayer.backpropagate(output);
-        denseLayer.optimize(input);
-    }
-    denseLayer.print();
+    network.addTrainingSets(trainingInput, trainingOutput);
+    while (network.train(1000) <= 0.9999);
+    network.printResults();
     return 0;
 }
