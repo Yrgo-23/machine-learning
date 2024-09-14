@@ -126,6 +126,18 @@ namespace math
 {
 
 /*******************************************************************************
+ * @brief Provides the absolute value of number.
+ * 
+ * @tparam T       The type of the number.
+ * 
+ * @param numbers The number whose absolute value is to be calculated.
+ * 
+ * @return The absolute value of the number.
+ ******************************************************************************/
+template <typename T>
+constexpr T absoluteValue(const T& number);
+
+/*******************************************************************************
  * @brief Provides the sum of an arbitrary amount of numbers.
  * 
  * @tparam T       The type of the numbers.
