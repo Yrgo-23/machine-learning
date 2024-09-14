@@ -12,13 +12,13 @@ def main() -> None:
     Training is performed until the network's accuracy exceeds 99,99 %. 
     Training results are printed in the terminal upon completion.
     """
-    training_input  = [[0, 0], [0, 1], [1, 0], [1, 1]]
-    training_output = [[0], [1], [1], [0]]
-    d1              = NeuralNetwork(2, 3, 1, ActFunc.TANH)
-    d1.add_training_data(training_input, training_output)
-    while d1.train(1000) <= 0.9999:
+    training_input       = [[0, 0], [0, 1], [1, 0], [1, 1]]
+    training_output      = [[0], [1], [1], [0]]
+    network              = NeuralNetwork(2, 3, 1, ActFunc.TANH)
+    network.add_training_data(training_input, training_output)
+    while network.train(1000) <= 0.9999:
         pass
-    d1.print_results()
+    network.print_results()
     
 
 # Calls the main function if this is the startup script of the application:
