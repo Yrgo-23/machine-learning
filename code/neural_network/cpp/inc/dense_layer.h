@@ -105,7 +105,7 @@ public:
     /*******************************************************************************
      * @brief Performs backpropagation for hidden layer.
      * 
-     * @param reference Reference to the next layer in the neural network.
+     * @param nextLayer Reference to the next layer in the neural network.
      * 
      * @note This method is implemented for hidden layers only.
      ******************************************************************************/
