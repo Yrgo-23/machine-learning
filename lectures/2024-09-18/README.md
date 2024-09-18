@@ -55,6 +55,7 @@ Innan koden levereras till kunden vill er chef ha en demonstration av systemet. 
 * Den uppdaterade kodbasen tillsammans med rapporten ska lämnas in via ett privat repo på GitHub.  
 **OBS!** Bjud in er chef till repot så att han kan titta på koden.
 
+**Tips:** Installera [Git Bash](https://git-scm.com/download/win) för att enkelt kunna använda Git i Windows.
 
 ### Utvärdering
 I samband med inlämningen, vänligen lämna in en kort diskussion i en README-fil där ni beskriver följande:  
@@ -102,6 +103,3 @@ vilket är ekvivalent med
 ```math
 temperature = 100 * inputVoltage - 50
 ```
-
-
-
