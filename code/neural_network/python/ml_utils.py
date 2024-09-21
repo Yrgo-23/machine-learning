@@ -64,26 +64,26 @@ class Math:
         return 1.0 - pow(math.tanh(number), 2)
     
     @staticmethod
-    def act_func_output(number: float, actFunc: ActFunc) -> float:
+    def act_func_output(number: float, act_func: ActFunc) -> float:
         """Provides the activation function output for a given input.
         
         :param number: The number for which to calculate the activation function output.
-        :param actFunc: The activation function used.
+        :param act_func: The activation function used.
 
         :return: The activation function output as a float.
         """
-        return Math.relu(number) if actFunc == ActFunc.RELU else Math.tanh(number)
+        return Math.relu(number) if act_func == ActFunc.RELU else Math.tanh(number)
     
     @staticmethod
-    def act_func_gradient(number: float, actFunc: ActFunc) -> float:
+    def act_func_gradient(number: float, act_func: ActFunc) -> float:
         """Provides the activation function gradient for a given input.
         
         :param number: The number for which to calculate the activation function gradient.
-        :param actFunc: The activation function used.
+        :param act_func: The activation function used.
 
         :return: The activation function gradient as a float.
         """
-        return Math.relu_gradient(number) if actFunc == ActFunc.RELU else Math.tanh_gradient(number)
+        return Math.relu_gradient(number) if act_func == ActFunc.RELU else Math.tanh_gradient(number)
 
 class Random:
     """Class holding static methods for generating random numbers"""
