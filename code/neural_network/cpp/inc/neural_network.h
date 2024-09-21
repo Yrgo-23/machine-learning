@@ -85,15 +85,15 @@ public:
     /*******************************************************************************
      * @brief Adds sets of training data. 
      *
-     * @param trainingInput  Reference to vector holding training input.
-     * @param trainingOutput Reference to vector holding training output.
+     * @param trainingInput  Reference to vector holding values of the input sets.
+     * @param trainingOutput Reference to vector holding values of the output sets.
      ******************************************************************************/
     void addTrainingSets(const std::vector<std::vector<double>>& trainingInput,
                          const std::vector<std::vector<double>>& trainingOutput);
 
     /*******************************************************************************
      * @brief Trains the neural network.
-        
+     *
      * @param epochCount   The number of epochs to perform training.
      * @param learningRate The rate with witch to optimize the network parameters 
      *                     (default = 0.01).
@@ -104,7 +104,7 @@ public:
     double train(const std::size_t epochCount, const double learningRate = 0.01);
 
     /*******************************************************************************
-     * @brief Provides the accuracy of the network by using the stored training data.
+     * @brief Provides the accuracy of the network by using stored training data.
      * 
      * @return The accuracy as a float in the range 0 - 1, which corresponds 
      *          to 0 - 100 %.
