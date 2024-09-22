@@ -87,7 +87,7 @@ class NeuralNetwork:
         :param epoch_count: The number of epochs to perform training.
         :param: learning_rate: The rate with witch to optimize the network parameters (default = 0.01).
 
-        :return: The accuracy post training as a float in the range 0 - 1 , which corresponds to 0 - 100 %.
+        :return: The accuracy post training as a double in the range 0 - 1 , which corresponds to 0 - 100 %.
         """
         if epoch_count <= 0 or learning_rate <= 0:
             raise ValueError(f"Invalid training parameters!")
@@ -102,7 +102,7 @@ class NeuralNetwork:
     def accuracy(self) -> float:
         """Provides the accuracy of the network by using the stored training data.
         
-        :return: The accuracy as a float in the range 0 - 1, which corresponds to 0 - 100 %.
+        :return: The accuracy as a double in the range 0 - 1, which corresponds to 0 - 100 %.
         """
         if self.training_set_count() == 0:
             return 0.0
@@ -159,7 +159,7 @@ class NeuralNetwork:
         :param input: List holding training set input.
         :param reference: List holding training set output.
 
-        :return: The average error of given training set as a float.
+        :return: The average error of given training set as a double.
         """
         average = lambda data: abs(sum(data)) / len(data) if len(data) > 0 else 0.0
         prediction = self.predict(input)

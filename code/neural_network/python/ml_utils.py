@@ -29,7 +29,7 @@ class Math:
         
         :param number: The number for which to calculate the Relu.
 
-        :return: The ReLU activation as a float.
+        :return: The ReLU activation as a double.
         """
         return number if number > 0.0 else 0.0
     
@@ -39,7 +39,7 @@ class Math:
         
         :param number: The number for which to calculate the ReLU gradient.
 
-        :return: The ReLU gradient as a float.
+        :return: The ReLU gradient as a double.
         """
         return 1.0 if number > 0.0 else 0.0
     
@@ -49,7 +49,7 @@ class Math:
 
         :param number: The number for which to calculate the hyperbolic tangent.
 
-        :return: The hyperbolic tangent as a float.
+        :return: The hyperbolic tangent as a double.
         """
         return math.tanh(number)
     
@@ -59,7 +59,7 @@ class Math:
 
         :param number: The number for which to calculate the gradient of the hyperbolic tangent.
 
-        :return: The gradient of the hyperbolic tangent as a float.
+        :return: The gradient of the hyperbolic tangent as a double.
         """
         return 1.0 - pow(math.tanh(number), 2)
     
@@ -70,7 +70,7 @@ class Math:
         :param number: The number for which to calculate the activation function output.
         :param act_func: The activation function used.
 
-        :return: The activation function output as a float.
+        :return: The activation function output as a double.
         """
         return Math.relu(number) if act_func == ActFunc.RELU else Math.tanh(number)
     
@@ -81,7 +81,7 @@ class Math:
         :param number: The number for which to calculate the activation function gradient.
         :param act_func: The activation function used.
 
-        :return: The activation function gradient as a float.
+        :return: The activation function gradient as a double.
         """
         return Math.relu_gradient(number) if act_func == ActFunc.RELU else Math.tanh_gradient(number)
 

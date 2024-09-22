@@ -208,7 +208,7 @@ constexpr T round(const double number);
  * 
  * @param number The number for which to calculate the Relu.
  * 
- * @return The ReLU activation as a float.
+ * @return The ReLU activation as a double.
  ******************************************************************************/
 constexpr double relu(const double number);
 
@@ -218,7 +218,7 @@ constexpr double relu(const double number);
  * 
  * @param number The number for which to calculate the ReLU gradient.
  * 
- * @return The ReLU gradient as a float.
+ * @return The ReLU gradient as a double.
  ******************************************************************************/
 constexpr double reluGradient(const double number);
 
@@ -227,7 +227,7 @@ constexpr double reluGradient(const double number);
  * 
  * @param number The number for which to calculate the hyperbolic tangent.
  * 
- * @return The hyperbolic tangent as a float.
+ * @return The hyperbolic tangent as a double.
  ******************************************************************************/
 constexpr double tanh(const double number);
 
@@ -238,7 +238,7 @@ constexpr double tanh(const double number);
  * @param number The number for which to calculate the gradient of the 
  *               hyperbolic tangent.
  * 
- * @return The gradient of the hyperbolic tangent as a float.
+ * @return The gradient of the hyperbolic tangent as a double.
  ******************************************************************************/
 constexpr double tanhGradient(const double number);
 

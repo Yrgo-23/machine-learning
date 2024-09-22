@@ -137,7 +137,7 @@ private:
      * @param number The number for which to calculate the activation function 
      *               output.
      * 
-     * @return The activation function output as a float.
+     * @return The activation function output as a double.
      ******************************************************************************/
     double actFuncOutput(const double number) const;
 
@@ -147,7 +147,7 @@ private:
      * @param number The number for which to calculate the activation function 
      *               gradient.
      * 
-     * @return The activation function gradient as a float.
+     * @return The activation function gradient as a double.
      ******************************************************************************/
     double actFuncGradient(const double number) const;
 

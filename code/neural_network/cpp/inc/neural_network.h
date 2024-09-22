@@ -98,7 +98,7 @@ public:
      * @param learningRate The rate with witch to optimize the network parameters 
      *                     (default = 0.01).
      *
-     * @return The accuracy post training as a float in the range 0 - 1, which
+     * @return The accuracy post training as a double in the range 0 - 1, which
      *         corresponds to 0 - 100 %.
      ******************************************************************************/
     double train(const std::size_t epochCount, const double learningRate = 0.01);
@@ -106,7 +106,7 @@ public:
     /*******************************************************************************
      * @brief Provides the accuracy of the network by using stored training data.
      * 
-     * @return The accuracy as a float in the range 0 - 1, which corresponds 
+     * @return The accuracy as a double in the range 0 - 1, which corresponds 
      *          to 0 - 100 %.
      ******************************************************************************/
     double accuracy();
@@ -162,7 +162,7 @@ private:
      * @param input     Reference to vector holding training set input.
      * @param reference Reference to vector holding training set output.
      * 
-     * @return The average error of given training set as a float.
+     * @return The average error of given training set as a double.
      ******************************************************************************/
     double averageError(const std::vector<double>& input, 
                         const std::vector<double>& reference);
