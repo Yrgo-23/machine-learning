@@ -8,6 +8,7 @@
 #include <stdio.h>
 
 #include "neural_network.h"
+#include "vector.h"
 #include "vector_2d.h"
 
 #define SET_COUNT          4U /* The number of training sets. */

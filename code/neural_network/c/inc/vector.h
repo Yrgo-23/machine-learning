@@ -1,9 +1,9 @@
 /********************************************************************************
  * @brief Implementation of polymorphic one-dimensional vectors.
  * 
- *         This file defines a vector structure that can hold either integers or 
- *         doubles, supporting various operations like resizing, adding elements, 
- *         and changing the vector type at runtime. 
+ *         This file defines a vector structure that can hold either integers, 
+ *         doubles, or strings, supporting various operations like resizing, 
+ *         adding elements, and changing the vector type at runtime. 
  * 
  * @note Virtual tables are used as a design pattern to achieve polymorphic 
  *       behavior, allowing support of different types of vectors. This design
@@ -27,8 +27,10 @@ extern "C" {
  *******************************************************************************/
 enum vector_type
 {
-    VECTOR_TYPE_INT,   /* Int vector. */
-    VECTOR_TYPE_DOUBLE /* Double vector. */
+    VECTOR_TYPE_INT,     /* Int vector. */
+    VECTOR_TYPE_DOUBLE,  /* Double vector. */
+    VECTOR_TYPE_STRING,  /* String vector. */
+    VECTOR_TYPE_COUNT    /* The number of available enumerators. */
 };
 
 /*******************************************************************************

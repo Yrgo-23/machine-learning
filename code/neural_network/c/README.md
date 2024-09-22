@@ -1,7 +1,7 @@
 # Implementering av neuralt nätverk i C
 
 Fullständig implementering av ett litet neuralt nätverk i mjukvara:
-* Filen `vector.h` innehåller strukten `vector`, som  möjliggör endimensionella vektorer innehållande antingen hel- eller flyttal.
+* Filen `vector.h` innehåller strukten `vector`, som  möjliggör endimensionella vektorer innehållande heltal, flyttal samt strängar.
 * Filen `vector_2d.h` innehåller strukten `vector_2d`, som möjliggör tvådimensionella vektorer innehållande pekare till vektorer
 av godtycklig typ. 
 * Filen `act_func.h` innehåller tillgängliga aktiveringsfunktioner samt beräkningsfunktioner.

@@ -18,7 +18,7 @@ struct vector_impl
 // -----------------------------------------------------------------------------
 static inline bool vector_type_is_valid(const enum vector_type type)
 {
-    return (type >= VECTOR_TYPE_INT) && type <= (VECTOR_TYPE_DOUBLE);
+    return (type >= VECTOR_TYPE_INT) && (type < VECTOR_TYPE_COUNT);
 }
 
 // -----------------------------------------------------------------------------
@@ -43,6 +43,12 @@ static enum vector_type vector_type(const struct vector* self)
 static bool vector_is_arithmetic(const struct vector* self)
 {
     return true;
+}
+
+// -----------------------------------------------------------------------------
+static bool vector_is_not_arithmetic(const struct vector* self)
+{
+    return false;
 }
 
 // -----------------------------------------------------------------------------
@@ -78,6 +84,7 @@ static bool vector_int_resize(struct vector* self, const size_t new_size)
 // -----------------------------------------------------------------------------
 static bool vector_int_push_back(struct vector* self, const void* value)
 {
+    if (!value) { return false; }
     int* copy = (int*)(realloc(self->impl->data, sizeof(int) * (self->impl->size + 1U)));
     if (!copy) { return false; }
     copy[self->impl->size++] = *((int*)(value));
@@ -112,14 +119,21 @@ static void vector_int_print(const struct vector* self, FILE* ostream, const cha
     const int* data = (const int*)(self->impl->data);
 
     if (!ostream) { ostream = stdout; }
-    if (end) { end = "\n"; }
+    if (!end) { end = "\n"; }
     fprintf(ostream, "[");
 
     for (size_t i = 0U; i < self->impl->size; ++i)
     {
-        if (i < self->impl->size - 1U) { fprintf(ostream, "%d, ", data[i]); }
-        else { fprintf(ostream, "%d%s", data[i], end); }
+        if (i < self->impl->size - 1U) 
+        { 
+            fprintf(ostream, "%d, ", data[i]); 
+        }
+        else 
+        { 
+            fprintf(ostream, "%d", data[i]); 
+        }
     }
+    fprintf(ostream, "]%s", end);
 }
 
 // -----------------------------------------------------------------------------
@@ -135,6 +149,7 @@ static bool vector_double_resize(struct vector* self, const size_t new_size)
 // -----------------------------------------------------------------------------
 static bool vector_double_push_back(struct vector* self, const void* value)
 {
+    if (!value) { return false; }
     double* copy = (double*)(realloc(self->impl->data, sizeof(double) * (self->impl->size + 1U)));
     if (!copy) { return false; }
     copy[self->impl->size++] = *((double*)(value));
@@ -179,11 +194,79 @@ static void vector_double_print(const struct vector* self, FILE* ostream, const 
         }
         else 
         { 
-            fprintf(ostream, "%.2f]%s", data[i], end); 
+            fprintf(ostream, "%.2f", data[i]); 
         }
     }
+    fprintf(ostream, "]%s", end);
 }
 
+// -----------------------------------------------------------------------------
+static bool vector_string_resize(struct vector* self, const size_t new_size)
+{
+    const char** copy = (const char**)(realloc(self->impl->data, sizeof(const char*) * new_size));
+    if (!copy) { return false; }
+    self->impl->data = copy;
+    self->impl->size = new_size;
+    return true;
+}
+
+// -----------------------------------------------------------------------------
+static bool vector_string_push_back(struct vector* self, const void* value)
+{
+    if (!value) { return false; }
+    const char** copy = (const char**)(realloc(self->impl->data, 
+        sizeof(const char*) * (self->impl->size + 1U)));
+    if (!copy) { return false; }
+    copy[self->impl->size++] = (const char*)(value);
+    self->impl->data         = copy;
+    return true;
+}
+
+// -----------------------------------------------------------------------------
+static bool vector_string_push_back_multiple(struct vector* self, const void* data, 
+                                             const size_t size)
+{
+    if (!data || size == 0U) { return false; }
+    const size_t old_size = self->impl->size;
+    
+    if (self->vptr->resize(self, size))
+    {
+        const char** new_values = (const char**)(data);
+        const char** field      = (const char**)(self->impl->data);
+
+        for (size_t i = old_size; i < self->impl->size; ++i)
+        {
+            field[old_size + i] = new_values[i]; 
+        }
+        return true;
+    }
+    return false;
+}
+
+// -----------------------------------------------------------------------------
+static void vector_string_print(const struct vector* self, FILE* ostream, const char* end)
+{
+    const char** data = (const char**)(self->impl->data);
+
+    if (!ostream) { ostream = stdout; }
+    if (!end) { end = "\n"; }
+    fprintf(ostream, "[");
+
+    for (size_t i = 0U; i < self->impl->size; ++i)
+    {
+        if (!data[i]) { continue; }
+
+        if (i < self->impl->size - 1U) 
+        { 
+            fprintf(ostream, "%s, ", data[i]);
+        }
+        else 
+        { 
+            fprintf(ostream, "%s", data[i]); 
+        }
+    }
+    fprintf(ostream, "]%s", end);
+}
 
 // -----------------------------------------------------------------------------
 static const struct vector_vtable* vector_vptr_int_new(void)
@@ -226,11 +309,39 @@ static const struct vector_vtable* vector_vptr_double_new(void)
 }
 
 // -----------------------------------------------------------------------------
+static const struct vector_vtable* vector_vptr_string_new(void)
+{
+    static const struct vector_vtable vtable = 
+    {
+        .data               = vector_data,
+        .size               = vector_size,
+        .type               = vector_type,
+        .is_arithmetic      = vector_is_not_arithmetic,
+        .begin              = vector_begin,
+        .end                = vector_end,
+        .clear              = vector_clear,
+        .resize             = vector_string_resize,
+        .push_back          = vector_string_push_back,
+        .push_back_multiple = vector_string_push_back_multiple,
+        .print              = vector_string_print
+    };
+    return &vtable;
+}
+
+// -----------------------------------------------------------------------------
 static const struct vector_vtable* vector_vptr_new(const enum vector_type type)
 {
-    if (type == VECTOR_TYPE_INT) { return vector_vptr_int_new(); }
-    else if (type == VECTOR_TYPE_DOUBLE) { return vector_vptr_double_new(); }
-    else { return NULL; }
+    switch (type)
+    {
+        case VECTOR_TYPE_INT:
+            return vector_vptr_int_new();
+        case VECTOR_TYPE_DOUBLE:
+            return vector_vptr_double_new();
+        case VECTOR_TYPE_STRING:
+            return vector_vptr_string_new();
+        default:
+            return NULL;
+    }
 }
 
 // -----------------------------------------------------------------------------
