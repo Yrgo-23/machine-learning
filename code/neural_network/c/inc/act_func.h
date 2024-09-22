@@ -4,6 +4,10 @@
 #ifndef ACT_FUNC_INCLUDED
 #define ACT_FUNC_INCLUDED
 
+#ifdef __cplusplus__
+extern "C" {
+#endif
+
 /*******************************************************************************
  * @brief Enum representing the different activation functions available for
  *        layers in neural networks.
@@ -47,5 +51,9 @@ double act_func_gradient(const double number, const enum act_func act_func);
  *         activation function is specified, "Unknown" is returned.
  ******************************************************************************/
 const char* act_func_string(const enum act_func act_func);
+
+#ifdef __cplusplus__
+}
+#endif
 
 #endif /* ACT_FUNC_INCLUDED */
