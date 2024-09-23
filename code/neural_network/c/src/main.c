@@ -83,7 +83,8 @@ int main(void)
 
     struct vector_2d* inputs       = create_train_input_vector(input_data);
     struct vector_2d* outputs      = create_train_output_vector(output_data);
-    struct neural_network* network = neural_network_new(2, 3, 1, ACT_FUNC_TANH, ACT_FUNC_RELU);
+    struct neural_network* network = neural_network_new(INPUT_COUNT, HIDDEN_NODES_COUNT, OUTPUT_COUNT, 
+                                                        ACT_FUNC_TANH, ACT_FUNC_RELU);
 
     if (!inputs || !outputs || !network || 
         !network->vptr->add_training_sets(network, &inputs, &outputs)) 
