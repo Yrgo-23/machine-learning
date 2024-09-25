@@ -2,7 +2,7 @@
 
 Exempel på en linjär regressionsmodell i C++ via en klass döpt `LinReg`:
 * Filen `lin_reg.h` utgör det "publika interfacet", alltså det som är av intresse för "användaren", och innehåller därmed metoddeklarationer med tillhörande dokumentation.  
-* Filen `lin_reg.cpp` innehåller implementationsdetaljer i form av medlemsfunktioner:
+* Filen `lin_reg.cpp` innehåller implementationsdetaljer i form av medlemsfunktioner.
 
 Filen `main.cpp` innehåller testkod, där en regressionsmodell tränas till att detektera mönstret y = 2x + 2.  
 Träning genomförs tills modellens precision överstiger 99,9 %, därefter skrivs resultatet ut.
