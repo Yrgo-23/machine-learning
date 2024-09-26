@@ -1,17 +1,26 @@
+# Application target.
+TARGET = app
+
 # Source files used in the application.
-SRC_FILES := main.cpp
+SOURCE_FILES := main.cpp
+
+# Include directories.
+INCLUDE_DIRS := include
+
+# Additional compiler flags.
+COMPILER_FLAGS := -Wall -Werror
 
 # Builds and runs the application as default.
-all: build run
+default: build run
 
 # Builds the application.
 build:
-	@g++ $(SRC_FILES) -o app -Wall -Werror -std=c++17
+	@g++ $(SOURCE_FILES) -o $(TARGET) -I $(INCLUDE_DIRS) $(COMPILER_FLAGS)
 
 # Runs the application.
 run:
-	@./app
+	@./$(TARGET)
 
 # Cleans the application.
 clean:
-	@rm -f app
+	@rm -f $(TARGET)
