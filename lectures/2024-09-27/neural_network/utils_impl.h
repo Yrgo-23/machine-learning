@@ -258,16 +258,28 @@ constexpr T round(const double number)
 }
 
 // -----------------------------------------------------------------------------
-constexpr double relu(const double number) { return number > 0 ? number : 0; }
+constexpr double relu(const double number) 
+{ 
+    return number > 0.0 ? number : 0.0; 
+}
 
 // -----------------------------------------------------------------------------
-constexpr double reluGradient(const double number) { return number > 0 ? 1 : 0; }
+constexpr double reluGradient(const double number) 
+{ 
+    return number > 0.0 ? 1.0 : 0.0; 
+}
 
 // -----------------------------------------------------------------------------
-constexpr double tanh(const double number) { return std::tanh(number); }
+constexpr double tanh(const double number) 
+{ 
+    return std::tanh(number); 
+}
 
 // -----------------------------------------------------------------------------
-constexpr double tanhGradient(const double number) { return 1 - std::pow(std::tanh(number), 2); }
+constexpr double tanhGradient(const double number) 
+{ 
+    return 1.0 - std::pow(std::tanh(number), 2); 
+}
 
 } // namespace math
 } // namespace
