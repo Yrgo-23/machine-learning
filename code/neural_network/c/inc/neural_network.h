@@ -129,8 +129,8 @@ struct neural_network_vtable
      *
      * @return The accuracy post training as a double in the range 0 - 1, which
      *         corresponds to 0 - 100 %, or -1 if an error occurred (e.g., if there 
-     *          are no training sets available, or either the epoch count is 0 or 
-     *          the learning rate is zero or below).
+     *         are no training sets available, or either the epoch count is 0 or 
+     *         the learning rate is zero or below).
      ******************************************************************************/
     double (*train)(struct neural_network* self, const size_t epoch_count,
                     const double learning_rate);
