@@ -1,16 +1,16 @@
-# Name of target.
+# Application target.
 TARGET := app
 
 # Source files used in the application.
-SRC_FILES := src/act_func.c \
-             src/dense_layer.c \
-             src/main.c \
-			 src/neural_network.c \
-			 src/vector.c \
-			 src/vector_2d.c
+SOURCE_FILES := source/act_func.c \
+                source/dense_layer.c \
+                source/main.c \
+			    source/neural_network.c \
+			    source/vector.c \
+			    source/vector_2d.c
 
 # Include directories.
-INC_DIRS := inc
+INCLUDE_DIRS := include
 
 # Compiler flags.
 COMPILER_FLAGS := -Wall -Werror
@@ -20,7 +20,7 @@ default: build run
 
 # Builds the application.
 build:
-	@g++ $(SRC_FILES) -o $(TARGET) -I $(INC_DIRS) $(COMPILER_FLAGS)
+	@g++ $(SOURCE_FILES) -o $(TARGET) -I $(INCLUDE_DIRS) $(COMPILER_FLAGS)
 
 # Runs the application.
 run:
