@@ -7,7 +7,8 @@
 * Kunna implementera implementeringsdetaljer innefattande konstruktorer, get- och set-metoder för ett dense-lager i mjukvara.
 
 ## Instruktioner
-* Implementationsdetaljerna för `DenseLayer`-klassen sätter vi ihop tillsammans under föreläsningen.
+* Implementationsdetaljerna för `DenseLayer`-klassen har ni tid att sätta ihop under föreläsningen. Vid behov körs genomgång i helklass.  
+* Se bifogat skript `dense_layer.cpp`, som utgör testkod för er dense-lager implementering. I detta skript skapas ett litet neuralt nätverk via två sammankopplade dense-lager och tränas till att prediktera ett 2-bitars XOR-mönster. Er egen implementering ska kunna köras med detta skript och ska med framgång kunna prediktera rätt mönster innan ni går ut på LIA.
 * Se implementering av små neurala nätverk i Python respektive C++ [här](../../code/neural_network/) för inspiration, speciellt filer [`dense_layer.py`](../../code/neural_network/python/dense_layer.py) samt [`dense_layer.h`](../../code/neural_network/cpp/inc/dense_layer.h).
 
 ## Utvärdering
