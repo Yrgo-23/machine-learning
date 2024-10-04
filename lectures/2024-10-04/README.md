@@ -6,7 +6,7 @@
 
 ## Mål med lektionen
 * Kunna implementera implementeringsdetaljer innefattande *feedforward* för ett dense-lager i mjukvara.
-* Ha lämnat in inlämningsuppgift 5 innan nästa onsdag.
+* Ha lämnat in inlämningsuppgift 5 innan ni går på LIA.
 
 ## Instruktioner
 * Implementationsdetaljerna för `DenseLayer`-klassen har ni tid att sätta ihop under föreläsningen. Vid behov körs genomgång i helklass.  
