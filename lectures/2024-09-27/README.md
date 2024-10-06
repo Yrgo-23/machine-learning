@@ -11,7 +11,7 @@
 ## Instruktioner
 * Arkitekturen för `DenseLayer`-klassen sätter vi ihop under föreläsningen (via en kombination av eget arbete samt genomgång).
 * Se implementering av dense-lager i C i underkatalogen [dense_layer_c](./dense_layer_c/), speciellt filer [`dense_layer.h`](./dense_layer_c/include/dense_layer.h) samt [`dense_layer.c`](./dense_layer_c/source/dense_layer.c).
-* Se implementering av små neurala nätverk i C++, C och Python [här](../../code/neural_network/) för inspiration, speciellt filer[`dense_layer.py`](../../code/neural_network/python/dense_layer.py) samt [`dense_layer.h`](../../code/neural_network/cpp/inc/dense_layer.h).
+* Se implementering av små neurala nätverk i C++, C och Python [här](../../code/neural_network/) för inspiration, speciellt filer[`dense_layer.py`](../../code/neural_network/python/dense_layer.py) samt [`dense_layer.h`](../../code/neural_network/cpp/general/include/dense_layer.h).
 * Skapa en katalog utanför klassrepot. I denna katalog ska ni skapa ett eget neuralt nätverk (och ni ska kunna pusha till GitHub).
 * Ert neurala nätverk, som vi kommer utveckla under många lektioner, ska också lagras via repo på GitHub. Detta repo bör döpas till `neural-network` eller liknande. 
 * Jag kommer hjälpa er med att skapa ett Git-repo under föreläsningen. Instruktioner finns längst
