@@ -13,12 +13,12 @@ namespace ml
 
 /*******************************************************************************
  * @brief Class implementation of neural networks with a single hidden layer.
+ * 
+ *        This class is non-copyable and non-movable.
  ******************************************************************************/
 class NeuralNetwork
 {
 public:
-
-    NeuralNetwork() = delete; // Default constructor deleted.
 
     /*******************************************************************************
      * @brief Creates new neural network.
@@ -37,6 +37,11 @@ public:
                   const std::size_t outputCount, 
                   const ActFunc actFuncHidden = ActFunc::Relu, 
                   const ActFunc actFuncOutput = ActFunc::Relu);
+
+    /*******************************************************************************
+     * @brief Deletes neural network.
+     ******************************************************************************/
+    ~NeuralNetwork() = default;
 
     /*******************************************************************************
      * @brief Provides the number of inputs in the neural network.
@@ -118,8 +123,13 @@ public:
      * @param decimalCount The number of decimals for which to print floats
      *                     (default = 1).
      ******************************************************************************/
-    void printResults(std::ostream& ostream = std::cout, 
-                      const std::size_t decimalCount = 1U);
+    void printResults(std::ostream& ostream = std::cout, const std::size_t decimalCount = 1U);
+
+    NeuralNetwork()                                = delete; // No default constructor.
+    NeuralNetwork(const NeuralNetwork&)            = delete; // No copy constructor.
+    NeuralNetwork(NeuralNetwork&&)                 = delete; // No move constructor.
+    NeuralNetwork& operator=(const NeuralNetwork&) = delete; // No copy assignment.
+    NeuralNetwork& operator=(NeuralNetwork&&)      = delete; // No move assignment.
 
 private:
 
@@ -164,14 +174,13 @@ private:
      * 
      * @return The average error of given training set as a double.
      ******************************************************************************/
-    double averageError(const std::vector<double>& input, 
-                        const std::vector<double>& reference);
+    double averageError(const std::vector<double>& input, const std::vector<double>& reference);
 
     DenseLayer myHiddenLayer;                          // Hidden layer of the neural network.
     DenseLayer myOutputLayer;                          // Output layer of the neural network.
-    std::vector<std::vector<double>> myTrainingInput;  // Vector holding training input.
-    std::vector<std::vector<double>> myTrainingOutput; // Vector holding training input.
-    std::vector<std::size_t> myTrainingOrder;          // Vector holding the training order via index.
+    std::vector<std::vector<double>> myTrainingInput;  // Training input values.
+    std::vector<std::vector<double>> myTrainingOutput; // Training output values.
+    std::vector<std::size_t> myTrainingOrder;          // Training order via set index.
 };
 
 } // namespace ml

@@ -37,16 +37,15 @@ void checkTrainingParameters(const std::size_t epochCount, const double learning
     }
 }
 
-void checkVectorsMatching(const std::vector<double>& vec1, 
-                          const std::vector<double>& vec2)
+// -----------------------------------------------------------------------------
+void checkVectorsMatching(const std::vector<double>& vec1, const std::vector<double>& vec2)
 {
     if (vec1.size() != vec2.size())
     {
         throw(std::invalid_argument("Mismatching vectors!"));
     }
 }
-
-}
+} // namespace
 
 namespace ml
 {
@@ -101,9 +100,8 @@ const std::vector<double>& NeuralNetwork::predict(const std::vector<double>& inp
 }
 
 // -----------------------------------------------------------------------------
-void NeuralNetwork::addTrainingSets(
-    const std::vector<std::vector<double>>& trainingInput,
-    const std::vector<std::vector<double>>& trainingOutput)
+void NeuralNetwork::addTrainingSets(const std::vector<std::vector<double>>& trainingInput,
+                                    const std::vector<std::vector<double>>& trainingOutput)
 {
     checkTrainingSets(trainingInput, trainingOutput);
     myTrainingInput  = trainingInput;
@@ -144,8 +142,7 @@ double NeuralNetwork::accuracy()
 }
 
 // -----------------------------------------------------------------------------
-void NeuralNetwork::printResults(std::ostream& ostream, 
-                                 const std::size_t decimalCount)
+void NeuralNetwork::printResults(std::ostream& ostream, const std::size_t decimalCount)
 {
     ostream << std::fixed << std::setprecision(decimalCount);
     ostream << "--------------------------------------------------------------------------------\n";
@@ -168,6 +165,7 @@ void NeuralNetwork::printResults(std::ostream& ostream,
 void NeuralNetwork::initTrainingOrder()
 {
     myTrainingOrder.resize(myTrainingInput.size());
+    
     for (std::size_t i{}; i < myTrainingOrder.size(); ++i) 
     { 
         myTrainingOrder[i] = i; 

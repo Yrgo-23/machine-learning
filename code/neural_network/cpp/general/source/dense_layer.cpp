@@ -24,6 +24,11 @@ DenseLayer::DenseLayer(const std::size_t nodeCount, const std::size_t weightCoun
     {
         throw std::invalid_argument("Cannot create dense layer without weights!");
     }
+    if (actFunc >= ActFunc::Count)
+    {
+        throw std::invalid_argument("Invalid activation function!");
+    }
+
     utils::vector::initRandom<double>(myBias, nodeCount, 0.0, 1.0);
     utils::vector::initRandom<double>(myWeights, nodeCount, weightCount, 0.0, 1.0);
 }
@@ -38,10 +43,7 @@ const std::vector<double>& DenseLayer::error() const { return myError; }
 const std::vector<double>& DenseLayer::bias() const { return myBias; }
 
 // -----------------------------------------------------------------------------
-const std::vector<std::vector<double>>& DenseLayer::weights() const 
-{ 
-    return myWeights; 
-}
+const std::vector<std::vector<double>>& DenseLayer::weights() const { return myWeights; }
 
 // -----------------------------------------------------------------------------
 ActFunc DenseLayer::actFunc() const { return myActFunc; }
@@ -71,7 +73,7 @@ void DenseLayer::feedforward(const std::vector<double>& input)
         {
             sum += input[j] * myWeights[i][j];
         }
-        myOutput[i] = actFuncOutput(sum);
+        myOutput[i] = actFuncOutput(myActFunc, sum);
     }
 }
 
@@ -87,7 +89,7 @@ void DenseLayer::backpropagate(const std::vector<double>& reference)
     for (std::size_t i{}; i < nodeCount(); ++i)
     {
         const auto error{reference[i] - myOutput[i]};
-        myError[i] = error * actFuncGradient(myOutput[i]);
+        myError[i] = error * actFuncGradient(myActFunc, myOutput[i]);
     }
 }
 
@@ -107,7 +109,7 @@ void DenseLayer::backpropagate(const DenseLayer& nextLayer)
         {
             error += nextLayer.error()[j] * nextLayer.weights()[j][i];
         }
-        myError[i] = error * actFuncGradient(myOutput[i]);
+        myError[i] = error * actFuncGradient(myActFunc, myOutput[i]);
     }
 }
 
@@ -146,29 +148,8 @@ void DenseLayer::print(std::ostream& ostream, const std::size_t decimalCount) co
     utils::vector::print(myBias, ostream, "\n", decimalCount);
     ostream << "Weights:\t\t";
     utils::vector::print(myWeights, ostream, "\n", decimalCount);
-    ostream << "Activation function:\t" << actFuncAsText() << "\n";
+    ostream << "Activation function:\t" << actFuncName(myActFunc) << "\n";
     ostream << "--------------------------------------------------------------------------------\n\n";
-}
-
-// -----------------------------------------------------------------------------
-double DenseLayer::actFuncOutput(const double number) const
-{
-    return myActFunc == ActFunc::Relu ? 
-        utils::math::relu(number) : utils::math::tanh(number);
-}
-
-// -----------------------------------------------------------------------------
-double DenseLayer::actFuncGradient(const double number) const
-{
-    return myActFunc == ActFunc::Relu ?
-        utils::math::reluGradient(number) : utils::math::tanhGradient(number);
-}
-
-// -----------------------------------------------------------------------------
-const char* DenseLayer::actFuncAsText() const
-{
-    if (myActFunc == ActFunc::Relu) { return "Rectified Linear Unit (ReLU)"; }
-    else { return "Hyperbolic tangent (tanh)"; }
 }
 
 } // namespace ml

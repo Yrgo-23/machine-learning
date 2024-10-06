@@ -6,25 +6,19 @@
 #include <iostream>
 #include <vector>
 
+#include "act_func.h"
+
 namespace ml
 {
 
 /*******************************************************************************
- * @brief Activation functions for layers in neural networks.
- ******************************************************************************/
-enum class ActFunc
-{
-    Relu, // Rectified Linear Unit (ReLU).
-    Tanh  // Hyperbolic tangent (tanh).
-};
-
-/*******************************************************************************
  * @brief Class implementation of dense layers.
+ * 
+ *        This class is non-copyable and non-movable.
  ******************************************************************************/
 class DenseLayer
 {
 public:
-    DenseLayer() = delete; // Default constructor deleted.
 
     /*******************************************************************************
      * @brief Creates new dense layer.
@@ -35,6 +29,11 @@ public:
      ******************************************************************************/
     DenseLayer(const std::size_t nodeCount, const std::size_t weightCount,
                const ActFunc actFunc = ActFunc::Relu);
+
+    /*******************************************************************************
+     * @brief Deletes dense layer.
+     ******************************************************************************/
+    ~DenseLayer() = default;
 
     /*******************************************************************************
      * @brief Provides the output of the dense layer.
@@ -126,42 +125,19 @@ public:
      * @param decimalCount The number of decimals for which to print floats
      *                     (default = 1).
      ******************************************************************************/
-    void print(std::ostream& ostream = std::cout, 
-               const std::size_t decimalCount = 1U) const;
+    void print(std::ostream& ostream = std::cout, const std::size_t decimalCount = 1U) const;
 
+    DenseLayer()                             = delete; // No default destructor.
+    DenseLayer(const DenseLayer&)            = delete; // No copy constructor.
+    DenseLayer(DenseLayer&&)                 = delete; // No move constructor.
+    DenseLayer& operator=(const DenseLayer&) = delete; // No copy assignment.
+    DenseLayer& operator=(DenseLayer&&)      = delete; // No move assignment.
+    
 private:
-
-    /*******************************************************************************
-     * @brief Provides the activation function output for a given input.
-     * 
-     * @param number The number for which to calculate the activation function 
-     *               output.
-     * 
-     * @return The activation function output as a double.
-     ******************************************************************************/
-    double actFuncOutput(const double number) const;
-
-    /*******************************************************************************
-     * @brief Provides the activation function gradient for a given input.
-     * 
-     * @param number The number for which to calculate the activation function 
-     *               gradient.
-     * 
-     * @return The activation function gradient as a double.
-     ******************************************************************************/
-    double actFuncGradient(const double number) const;
-
-    /*******************************************************************************
-     * @brief Provides the activation function used as text.
-     * 
-     * @return The activation function as a string.
-     ******************************************************************************/
-    const char* actFuncAsText() const;
-
-    std::vector<double> myOutput;               // Vector holding the output of each node.
-    std::vector<double> myError;                // Vector holding the calculated error of each node.
-    std::vector<double> myBias;                 // Vector holding the bias of each node.
-    std::vector<std::vector<double>> myWeights; // Vector holding the weights of each node.
+    std::vector<double> myOutput;               // Output of each node.
+    std::vector<double> myError;                // Calculated error of each node.
+    std::vector<double> myBias;                 // Bias of each node.
+    std::vector<std::vector<double>> myWeights; // Weights of each node.
     ActFunc myActFunc;                          // Activation function used in this layer.
 };
 
