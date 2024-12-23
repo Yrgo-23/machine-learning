@@ -23,8 +23,8 @@ public:
     /*******************************************************************************
      * @brief Creates new dense layer.
      *
-     * @param nodeCount   The number of nodes in the new layer.
-     * @param weightCount The number of weights per node in the new layer.
+     * @param nodeCount   The number of nodes of the new layer.
+     * @param weightCount The number of weights per node of the new layer.
      * @param actFunc     The activation function of the layer (default = ReLU).
      ******************************************************************************/
     DenseLayer(const std::size_t nodeCount, const std::size_t weightCount,
@@ -72,14 +72,14 @@ public:
     ActFunc actFunc() const;
 
     /*******************************************************************************
-     * @brief Provides the number of nodes in the dense layer.
+     * @brief Provides the number of nodes of the dense layer.
      * 
      * @return The number of nodes as an unsigned integer.
      ******************************************************************************/
     std::size_t nodeCount() const;
 
     /*******************************************************************************
-     * @brief Provides the number of weights per node in the dense layer.
+     * @brief Provides the number of weights per node of the dense layer.
      * 
      * @return The number of weights per node as an unsigned integer.
      ******************************************************************************/
@@ -104,7 +104,7 @@ public:
     /*******************************************************************************
      * @brief Performs backpropagation for hidden layer.
      * 
-     * @param nextLayer Reference to the next layer in the neural network.
+     * @param nextLayer Reference to the next layer of the neural network.
      * 
      * @note This method is implemented for hidden layers only.
      ******************************************************************************/
@@ -138,7 +138,7 @@ private:
     std::vector<double> myError;                // Calculated error of each node.
     std::vector<double> myBias;                 // Bias of each node.
     std::vector<std::vector<double>> myWeights; // Weights of each node.
-    ActFunc myActFunc;                          // Activation function used in this layer.
+    ActFunc myActFunc;                          // Activation function used for this layer.
 };
 
 } // namespace ml

@@ -23,14 +23,11 @@ public:
     /*******************************************************************************
      * @brief Creates new neural network.
      * 
-     * @param inputCount       The number of inputs in the neural network.
-     * @param hiddenNodesCount The number of nodes in in the network's single 
-     *                         hidden layer.
-     * @param outputCount      The number of output in the neural network.
-     * @param actFuncHidden    Activation function of the hidden layer 
-     *                         (default = ReLU).
-     * @param actFuncOutput    Activation function of the output layer 
-     *                         (default = ReLU).
+     * @param inputCount       The number of inputs of the neural network.
+     * @param hiddenNodesCount The number of nodes of the network's single hidden layer.
+     * @param outputCount      The number of outputs of the neural network.
+     * @param actFuncHidden    Activation function of the hidden layer (default = ReLU).
+     * @param actFuncOutput    Activation function of the output layer (default = ReLU).
      ******************************************************************************/
     NeuralNetwork(const std::size_t inputCount, 
                   const std::size_t hiddenNodesCount,
@@ -44,21 +41,21 @@ public:
     ~NeuralNetwork() = default;
 
     /*******************************************************************************
-     * @brief Provides the number of inputs in the neural network.
+     * @brief Provides the number of inputs of the neural network.
      *  
      * @return The number of inputs as an integer.
      ******************************************************************************/
     std::size_t inputCount() const;
 
     /*******************************************************************************
-     * @brief Provides the number of nodes in the network's hidden layer.
+     * @brief Provides the number of nodes of the network's hidden layer.
      *
      * @return The number of hidden nodes as an integer.
      ******************************************************************************/
     std::size_t hiddenNodesCount() const;
 
     /*******************************************************************************
-     * @brief Provides the number of outputs in the neural network.
+     * @brief Provides the number of outputs of the neural network.
      * 
      * @return The number of outputs as an integer.
      ******************************************************************************/
