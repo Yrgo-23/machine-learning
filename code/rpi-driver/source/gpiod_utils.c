@@ -44,25 +44,17 @@ void gpiod_line_blink(struct gpiod_line* self, const uint16_t blink_speed_ms)
 }
 
 // -----------------------------------------------------------------------------
-bool gpiod_line_event_detected(struct gpiod_line* self, 
-                               const enum gpiod_line_edge edge, 
+bool gpiod_line_event_detected(struct gpiod_line* self, const enum gpiod_line_edge edge, 
                                bool* previous_input) 
 {
     delay_ms(50U);
     const bool old_val = *previous_input;
     const bool new_val = (bool)(gpiod_line_get_value(self));
-    *previous_input = new_val;
+    *previous_input    = new_val;
     
     if (old_val == new_val) { return false; } 
-
-    if (edge == GPIOD_LINE_EDGE_RISING) 
-    {
-        return new_val && !old_val ? true : false;
-    } 
-    else if (edge == GPIOD_LINE_EDGE_FALLING) 
-    {
-        return !new_val && old_val ? true : false;
-    } 
+    if (edge == GPIOD_LINE_EDGE_RISING) { return new_val && !old_val ? true : false; } 
+    else if (edge == GPIOD_LINE_EDGE_FALLING) { return !new_val && old_val ? true : false; } 
     else { return true; }
 }
 

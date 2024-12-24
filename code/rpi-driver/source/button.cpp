@@ -10,29 +10,28 @@ namespace rpi
 {
     
 // -----------------------------------------------------------------------------
-Button::Button(const std::uint8_t pin, const bool activeHigh)
+Button::Button(const std::uint8_t pin, const bool activeHigh) noexcept
     : myLine{gpiod_line_new(pin, GPIOD_LINE_DIRECTION_IN)}
     , myActiveHigh{activeHigh}
     , myLastInput{!myActiveHigh} {}
 
 // -----------------------------------------------------------------------------
-Button::~Button() { gpiod_line_release(myLine); }
+Button::~Button() noexcept { gpiod_line_release(myLine); }
 
 // -----------------------------------------------------------------------------
-std::uint8_t Button::pin() const { return gpiod_line_offset(myLine); }
+std::uint8_t Button::pin() const noexcept { return gpiod_line_offset(myLine); }
 
 // -----------------------------------------------------------------------------
-bool Button::isPressed() 
+bool Button::isPressed() noexcept
 { 
     myLastInput = gpiod_line_get_value(myLine);
     return myActiveHigh ? myLastInput : !myLastInput;
 }
 
 // -----------------------------------------------------------------------------
-bool Button::isEventDetected(const Edge edge)
+bool Button::isEventDetected(const Edge edge) noexcept
 {
-    return gpiod_line_event_detected(myLine, 
-        static_cast<enum gpiod_line_edge>(edge), &myLastInput);
+    return gpiod_line_event_detected(myLine, static_cast<gpiod_line_edge>(edge), &myLastInput);
 }
 
 } // namespace rpi
