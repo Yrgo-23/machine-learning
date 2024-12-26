@@ -9,11 +9,11 @@
 * Ha slutfört större delen eller hela projekt 2.
 * Känna till varför traditionella neurala nätverk inte lämpar sig väl för bildklassificering.
 * Känna till övergripande hur konvolutionella lager är uppbyggda.
+* Kunna extrahera attribut ur bilder via kernels.
 
 ## Instruktioner
 * Läs uppgiftsbeskrivningen för projekt 2 nedan (eller på Classroom).
-* Läs om konvolutionella neurala nätverk [här](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53), specifikt introduktionen samt delen gällande varför konvolutionella neurala nätverk föredras framför konvolutionella neurala nätverk för bilder.
-
+* Läs om konvolutionella neurala nätverk [här](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53), specifikt introduktionen, avsnittet som behandlar varför konvolutionella neurala nätverk föredras framför konvolutionella neurala nätverk för bilder samt avsnittet om kernels.
 * Se implementation av konvolutionella lager, pooling-lager samt flatten-lager i C++ och Python [här](../../code/conv_layer/).
 
 ## Utvärdering
@@ -21,7 +21,7 @@
 
 ## Nästa lektion
 * Dubbelpass: 
-    * Kernels i konvolutionella neurala nätverk för att extrahera attribut ur bilder.
+    * Pooling- samt flatten-lager i konvolutionella neurala nätverk för bildklassificering.
     * Inlämningsuppgift 6 - Konvolutionella neurala nätverk.
 
 ## Projekt II - Neuralt nätverk i ett inbyggt system
