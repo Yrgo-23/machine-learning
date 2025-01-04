@@ -1,4 +1,4 @@
-# Maskininlärning - Ela24
+# Maskininlärning - Ela23
 
 Repo för kursen Maskininlärning med klassen Ela23, vt24 - ht25.
 
