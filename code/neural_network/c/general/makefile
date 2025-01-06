@@ -22,7 +22,7 @@ default: build run
 
 # Builds the application.
 build:
-	@gcc $(SOURCE_FILES) -o $(TARGET) -I $(INCLUDE_DIRS) $COMPILER_FLAGS $(LINK_LIBS)
+	@gcc $(SOURCE_FILES) -o $(TARGET) -I $(INCLUDE_DIRS) $(COMPILER_FLAGS) $(LINK_LIBS)
 
 # Runs the application.
 run:
