@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "dense_layer.h"
+#include "neural_network.h"
 #include "utils.h"
 
 using namespace ml;
@@ -24,7 +25,7 @@ using namespace ml;
  *        Practically, the dense layer network forms a small neural network
  *        consisting of two inputs, three hidden nodes and one output.
  *  
- *        The network is trained during 10 000 epochs with a 1 % learning rate.
+ *        The network is trained during 1000 epochs with a 1 % learning rate.
  *        The results post training are printed in the terminal.      
  * 
  * @return Success code 0 upon termination of the program.
@@ -32,7 +33,7 @@ using namespace ml;
 int main()
 {
     // Defines network parameters and training sets.
-    constexpr std::size_t epochCount{10000U};
+    constexpr std::size_t epochCount{1000U};
     constexpr double learningRate{0.1};
     const std::vector<std::vector<double>> inputSets{{0, 0}, {0, 1}, {1, 0}, {1, 1}};
     const std::vector<std::vector<double>> referenceSets{{0}, {1}, {1}, {0}};

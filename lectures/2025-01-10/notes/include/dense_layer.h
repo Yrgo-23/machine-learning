@@ -12,7 +12,7 @@ namespace ml
 {
 
 /*******************************************************************************
- * @brief Class implementation of dense layers.
+ * @brief Class implementation of a dense layer.
  * 
  *        This class is non-copyable and non-movable.
  ******************************************************************************/
@@ -31,7 +31,7 @@ public:
                const ActFunc actFunc = ActFunc::Relu);
 
     /*******************************************************************************
-     * @brief Deletes dense layer.
+     * @brief Deletes the dense layer.
      ******************************************************************************/
     ~DenseLayer() = default;
 

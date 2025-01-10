@@ -14,6 +14,7 @@ prediktera med ett neuralt nätverk med godtycklig träningsdata.
 * Om ni inte hann få ihop ett fungerade dense-lager innan LIA-perioden, se katalogen [`dense_layer`](./dense_layer/).
 * Använd med fördel testskriptet [`neural_network.cpp`](neural_network_test.cpp) för att testa er implementering samt se ett exempelvis på hur nätverket bör fungera.
 * Se implementering av små neurala nätverk i C, C++ samt Python [här](../../code/neural_network/) för inspiration. Kolla speciellt C++-implementationen, som bland annat innefattar filer [`neural_network.h`](../../code/neural_network/cpp/general/include/neural_network.h) samt [`neural_network.cpp`](../../code/neural_network/cpp/general/source/neural_network.cpp).
+* Föreläsningsanteckningar finns i katalogen [`notes`](./notes/).
 
 ## Utvärdering
 * Några synpunkter på lektionen i sig?
