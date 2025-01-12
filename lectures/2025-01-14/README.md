@@ -8,6 +8,7 @@
 prediktera med ett neuralt nätverk med godtycklig träningsdata.
 
 ## Instruktioner
+* Det publika interface som skapades för klassen `NeuralNetwork` föregående föreläsning finns [här](../2025-01-10/notes/).
 * Implementationsdetaljerna för `NeuralNetwork`-klassen har ni tid att sätta ihop under föreläsningen. Vid behov körs genomgång i helklass.  
 * Använd med fördel testskriptet [`neural_network.cpp`](neural_network_test.cpp) för att testa er implementering samt se ett exempelvis på hur nätverket bör fungera.
 * Se implementering av små neurala nätverk i C, C++ samt Python [här](../../code/neural_network/) för inspiration. Kolla speciellt C++-implementationen, som bland annat innefattar filer [`neural_network.h`](../../code/neural_network/cpp/general/include/neural_network.h) samt [`neural_network.cpp`](../../code/neural_network/cpp/general/source/neural_network.cpp).
