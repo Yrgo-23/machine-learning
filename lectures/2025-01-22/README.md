@@ -1,4 +1,4 @@
-# 2025-01-21 - Lektion 22
+# 2025-01-22 - Lektion 22
 
 ## Dagordning
 * **Projekt 2** - Neuralt nätverk i ett inbyggt system (del III).
