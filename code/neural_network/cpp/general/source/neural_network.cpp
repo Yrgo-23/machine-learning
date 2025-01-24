@@ -203,15 +203,15 @@ void NeuralNetwork::optimize(const std::vector<double>& input, const double lear
 double NeuralNetwork::averageError(const std::vector<double>& input, 
                                    const std::vector<double>& reference)
 {
-    double sum{};
+    double error{};
     const auto prediction{predict(input)};
     checkVectorsMatching(reference, prediction);
 
     for (std::size_t i{}; i < prediction.size(); ++i)
     {
-        sum += utils::math::absoluteValue(reference[i] - prediction[i]);
+        error += utils::math::absoluteValue(reference[i] - prediction[i]);
     }
-    return sum / input.size();
+    return error / reference.size();
 }
 
 } // namespace ml
