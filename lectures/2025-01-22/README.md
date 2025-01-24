@@ -20,6 +20,7 @@
 * Dubbelpass: 
     * Fortsatt arbete med **Projekt 2**.
     * Konvolutionella neurala nätverk för bildklassificering- kernels, padding och pooling-lager (del I).
+    * Inlämningsuppgift 6 - Konvolutionella neurala nätverk.
 
 ## Projekt II - Neuralt nätverk i ett inbyggt system
 

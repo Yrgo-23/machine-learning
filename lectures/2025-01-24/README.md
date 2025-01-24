@@ -4,6 +4,7 @@
 * Dubbelpass:
     * **Projekt 2** - Neuralt nätverk i ett inbyggt system (del IV).
     * Introduktion till konvolutionella neurala nätverk för bildklassificering.
+    * Inlämningsuppgift 6 - Konvolutionella neurala nätverk.
 
 ## Mål med lektionen
 * Ha slutfört större delen eller hela projekt 2.
@@ -15,6 +16,7 @@
 * Läs uppgiftsbeskrivningen för projekt 2 nedan (eller på Classroom).
 * Läs om konvolutionella neurala nätverk [här](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53), specifikt introduktionen, avsnittet som behandlar varför konvolutionella neurala nätverk föredras framför konvolutionella neurala nätverk för bilder samt avsnittet om kernels.
 * Se implementation av konvolutionella lager, pooling-lager samt flatten-lager i C++ och Python [här](../../code/conv_layer/).
+* Inlämningsuppgift 6 är tillgänglig på Classroom under förmiddagen.
 
 ## Utvärdering
 * Något specifikt ni undrar eller behöver hjälp med?

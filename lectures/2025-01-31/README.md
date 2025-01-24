@@ -14,7 +14,6 @@
 ## Instruktioner
 * Läs om konvolutionella neurala nätverk [här](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53), specifikt avsnittet om pooling-lager (som också beskriver flatten-lager).
 * Se implementation av konvolutionella lager, pooling-lager samt flatten-lager i C++ och Python [här](../../code/conv_layer/).
-* Inlämningsuppgift 6 är tillgänglig på Classroom kl. 13:00.
 
 ## Utvärdering
 * Några synpunkter på kursen i stort?
